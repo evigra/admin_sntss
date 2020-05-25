@@ -1545,7 +1545,7 @@
 					    	if(@$this->sys_private["section"]=="show")
 					    		$words["$campo"]  ="*********{$valor["br"]}$titulo";					    		
 					    	if(@$this->sys_private["section"]=="write")
-					    	    unset($this->sys_fields["$campo"]["attr"]);	
+					    	    $this->sys_fields["$campo"]["attr"]=array();	
 					    	    
 					    	else					    
 					        $words["$campo"]  ="<input type=\"password\" $style id=\"$campo\" $attr name=\"{$this->sys_name}_$campo\" value=\"{$valor["value"]}\" class=\"formulario {$this->sys_name} $class\">{$valor["br"]}$titulo";
