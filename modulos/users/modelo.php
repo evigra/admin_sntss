@@ -82,6 +82,11 @@
 				"name"			=>"menu_obj",		
 				"memory"		=>"menu_obj",
 			);						
+
+            if(@$this->sys_private["section"]=="write")    
+                unset($this->sys_fields["password"]["attr"]);
+            
+            
 			$this->menu_obj			=new menu($option_menu);
 			return parent::__CONSTRUCT($option);
 		}
