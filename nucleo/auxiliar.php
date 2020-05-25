@@ -1543,7 +1543,10 @@
 					    if($valor["type"]=="password")	
 					    {					        
 					    	if(@$this->sys_private["section"]=="show")
-					    		$words["$campo"]  ="*********{$valor["br"]}$titulo";
+					    		$words["$campo"]  ="*********{$valor["br"]}$titulo";					    		
+					    	if(@$this->sys_private["section"]=="write")
+					    	    unset(@$this->sys_fields["$campo"]["attr"]);	
+					    	    
 					    	else					    
 					        $words["$campo"]  ="<input type=\"password\" $style id=\"$campo\" $attr name=\"{$this->sys_name}_$campo\" value=\"{$valor["value"]}\" class=\"formulario {$this->sys_name} $class\">{$valor["br"]}$titulo";
 					    }    
@@ -1602,28 +1605,6 @@
 					    ################################
 					    if($valor["type"]=="autocomplete" AND $this->sys_recursive<3)	
 					    {
-/*
-					        if(!in_array(@$this->sys_private["action"],$_SESSION["var"]["print"]))					        
-					        {
-								if(@$this->sys_private["section"]=="show")
-								{
-									$words["$campo"]  		="{$valor["value"]}{$valor["br"]}$titulo";
-									$words["$campo.md5"]  	=strtoupper(md5($valor["value"]))."{$valor["br"]}$titulo";
-								}	
-								else
-								{					        
-									$words["$campo"]  		="<input id=\"$campo\" $style autocomplete=\"off\" type=\"text\" $attr name=\"{$this->sys_name}_$campo\" value=\"{$valor["value"]}\" class=\"formulario {$this->sys_name} {$this->sys_object} $class\">{$valor["br"]}$titulo";
-									$words["$campo.md5"]  	="<input id=\"$campo\" $style autocomplete=\"off\" type=\"text\" $attr name=\"{$this->sys_name}_$campo\" value=\"" . md5($valor["value"]) . "\" class=\"formulario {$this->sys_name} {$this->sys_object} $class\">{$valor["br"]}$titulo";
-								}					        										
-							}
-					        else	
-					        {
-					        	$words["$campo"]  		="{$valor["value"]}{$valor["br"]}$titulo";    
-					        	$words["$campo.md5"]  	=strtoupper(md5($valor["value"]))."{$valor["br"]}$titulo";
-					        }	
-
-*/
-							
 
 					    	$words["$campo"]  ="";
 					    	if(!isset($fields["auto_$campo"]["value"]))	$fields["auto_$campo"]["value"]="";
