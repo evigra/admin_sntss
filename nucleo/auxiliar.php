@@ -1311,9 +1311,13 @@
 			        	{	
 			        		foreach($valor["attr"] as $attr_field => $attr_value)
 			        		{
-								if($attr_value=="required")										
-					            	if(@$this->sys_private["section"]!="write")							
-    								    $class.=" required ";
+								if($attr_value=="required")									
+								{
+								    $required=" required ";									    
+					            	if(@$this->sys_private["section"]=="write" AND $valor["type"]=="password")								    								   
+        								$required="";    
+    								$class.=$required;
+    							}	
 								else	
 									$attr.=" $attr_field='$attr_value'";
 			        		}			        	
