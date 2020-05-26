@@ -1311,7 +1311,9 @@
 			        	{	
 			        		foreach($valor["attr"] as $attr_field => $attr_value)
 			        		{
-								if($attr_value=="required")		$class.=" required ";
+								if($attr_value=="required")										
+					            	if(@$this->sys_private["section"]!="write")							
+    								    $class.=" required ";
 								else	
 									$attr.=" $attr_field='$attr_value'";
 			        		}			        	
@@ -1541,10 +1543,7 @@
 					    } 			           
 					    ################################
 					    if($valor["type"]=="password")	
-					    {					        
-					    	if(@$this->sys_private["section"]=="write")
-					    	    $this->sys_fields["$campo"]["attr"]=array();	
-					    	    
+					    {					        					    	    
 					    	if(@$this->sys_private["section"]=="show")
 					    		$words["$campo"]  ="*********{$valor["br"]}$titulo";					    							    	    
 					    	else					    
