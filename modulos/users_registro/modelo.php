@@ -35,9 +35,10 @@
                 {	
                     $vars["telefono"]   ="521".$datas["celular"];                    
 	                $vars["mensaje"]	="Muchas gracias <b>{$datas["name"]}</b> por apoyarnos.                 
-
 SolesGPS, tambien esta apoyando a RAUL ML para la secretaria SNTSS. 
-Comparte este proyecto http://sntss.solesgps.com/webHome/
+
+Comparte este proyecto 
+http://sntss.solesgps.com/webHome/
 
 Registrate para apoyar el proyecto
 http://sntss.solesgps.com/users_registro/
