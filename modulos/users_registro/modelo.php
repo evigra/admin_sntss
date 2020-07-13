@@ -34,7 +34,7 @@
                 if($datas["celular"]!="")
                 {	
                     $vars["telefono"]   ="521".$datas["celular"];                    
-	                $vars["mensaje"]	="Muchas gracias <b>{$datas["name"]}</b> por apoyarnos.                 
+	                $vars["mensaje"]	="Muchas gracias {$datas["name"]} por apoyarnos.                 
 SolesGPS, tambien esta apoyando a RAUL ML para la secretaria SNTSS. 
 
 Comparte este proyecto 
