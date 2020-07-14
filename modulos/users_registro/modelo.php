@@ -38,10 +38,10 @@
 SolesGPS, tambien esta apoyando a RAUL ML para la secretaria SNTSS. 
 
 Comparte este proyecto 
-http://sntss.solesgps.com/webHome/
+http://raulmartinez.solesgps.com/webHome/
 
 Registrate para apoyar el proyecto
-http://sntss.solesgps.com/users_registro/
+http://raulmartinez.solesgps.com/users_registro/
 ";
 	                $this->__WA($vars);
 	            }
