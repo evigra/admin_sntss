@@ -366,17 +366,48 @@
 			    $words["system_company"]       	=$_SESSION["company"]["nombre"];
 			
 			    $url                            ="";
+/*
+                <td  style="color:white; padding: 0px 5px 0px 5px; ">    
+	                <nav class="navegacion">
+		                <ul class="menu">                            
+                            
+		                </ul>
+	                </nav>            	
+                </td>
+                <td  style="color:white; padding: 0px 5px 0px 5px;"> 
+                  	<a href="&sys_action=cerrar_sesion">
+                    	<img class= "imgBox" src="../sitio_web/img/shutDown.png" title="Cerrar Sesion" height="25px">   
+                    </a>	
+                </td>
+*/
 
+                $cerrar_sesion="";
 			    if(@$_SESSION["user"]["name"]!="Iniciar Sesion" AND count($_SESSION["user"])>1)
 			    {			    			    			    
-
+                    $cerrar_sesion="
+                        <td  style=\"color:white; padding: 0px 5px 0px 5px;\"> 
+                          	<a href=\"&sys_action=cerrar_sesion\">
+                            	<img class=\"imgBox\" src=\"../sitio_web/img/shutDown.png\" title=\"Cerrar Sesion\" height=\"25px\">   
+                            </a>	
+                        </td>
+                    ";
                 }			    
                 else
                 {
                     $url                        ="../sesion/";
                 }    
-				$words["system_user"]           ="<li><a href=\"$url\">{$_SESSION["user"]["name"]}</a></li>";
-				
+                
+                
+                $words["system_user"]           ="
+                    <td  style=\"color:white; padding: 0px 5px 0px 5px; \">    
+	                    <nav class=\"navegacion\">
+		                    <ul class=\"menu\">                            
+                                <li><a href=\"../sesion/\"><b>{$_SESSION["user"]["name"]}</b></a></li>
+		                    </ul>
+	                    </nav>            	
+                    </td>
+                    $cerrar_sesion
+                ";				
 				$words["system_img"]           	="";
 
                 $words							=$this->__MENU($words);
@@ -581,7 +612,7 @@
 					    <a href=\"#\">
 					        
 					        <font size=\"4\" style=\"color:SteelBlue;\">
-					            <i class=\"fab fa-bars\"></i>
+					            <i class=\"fas fa-bars\"></i>
 					            <b> {$menu_principal}</b>
 				            </font>
 				        </a>
