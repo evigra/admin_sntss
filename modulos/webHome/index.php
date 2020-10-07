@@ -10,9 +10,10 @@
 	$objeto->words["system_module"]             =$objeto->__VIEW_SHOW();
 	$objeto->words                              =$objeto->__INPUT($objeto->words,$objeto->sys_fields);      
 
-    $option=array("header"=>"false");
-	$data										=$objeto->__VIEW_GALERY($option);		
-	$objeto->words["galery"]				    =$data["html"];
+    #$option=array("header"=>"false");
+	
+	#$data										=$objeto->__VIEW_GALERY($option);		
+	#$objeto->words["galery"]				    =$data["html"];
 
 
 	$objeto->words["html_head_js"]              =$objeto->__FILE_JS();								# ARCHIVOS JS DEL MODULO

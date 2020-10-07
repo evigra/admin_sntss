@@ -100,10 +100,9 @@
 			
 			$objeto					=new general();         
 			
-			#$objeto->__PRINT_R($_SESSION);
-			
 			$comando_sql			="SELECT * FROM modulos WHERE status=1";
 			$modulos 				=$objeto->__EXECUTE($comando_sql);    
+			
 			
 			foreach($modulos as $modulo)
 			{

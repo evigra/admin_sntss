@@ -15,7 +15,7 @@ php_value docref_ext 0
 php_value error_reporting -1
 php_value log_errors_max_len 0
 
-php_value display_errors On 
+php_value display_errors Off 
 
 
 
@@ -25,7 +25,16 @@ RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule .+ - [L]
+
+
+
+#RewriteCond %{HTTPS} !=on
+#RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+
+
+
 #RewriteRule ^(.*)$ modulos/$1/index.php
 
 RewriteRule ^(.*)$ index.php?sys_vpath=$1
+
 

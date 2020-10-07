@@ -1,6 +1,6 @@
 <?php
-	require_once("nucleo/sesion.php");	
 
+	require_once("nucleo/sesion.php");	
 
 	##############################################################################	
 	##  Propiedades	
@@ -28,6 +28,7 @@
 	}
 	$folders=substr_count($_SESSION["var"]["vpath"], "/");
 	
+	
 	if(file_exists($_SESSION["var"]["vpath"]))									require_once($_SESSION["var"]["vpath"]);
 	else if(file_exists($_SESSION["var"]["modulo_path"]) AND $folders==1)		require_once($_SESSION["var"]["modulo_path"]);
 	else 
@@ -41,5 +42,5 @@
 
 		header('Location:'.$_SESSION["var"]["vpath"]);		
 	}
-	
+
 ?>
