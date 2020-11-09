@@ -2394,10 +2394,10 @@
 
 			    	if(isset($this->sys_view_l18n) AND is_array($this->sys_view_l18n))	
 			    	{
-		    		    #$actions_lang["actions_selected"]	=$this->sys_view_l18n["actions_selected"];
-			    		$actions_lang["actions_show"]		=$this->sys_view_l18n["actions_show"];
-			    		$actions_lang["actions_write"]		=$this->sys_view_l18n["actions_write"];
-			    		$actions_lang["actions_delete"]		=$this->sys_view_l18n["actions_delete"];
+		    		    #$actions_lang["actions_selected"]	=@$this->sys_view_l18n["actions_selected"];
+			    		$actions_lang["actions_show"]		=@$this->sys_view_l18n["actions_show"];
+			    		$actions_lang["actions_write"]		=@$this->sys_view_l18n["actions_write"];
+			    		$actions_lang["actions_delete"]		=@$this->sys_view_l18n["actions_delete"];
 			    				        		
 						$view_aux	=$this->__REPLACE($view_aux,$actions_lang);
 			    	}                                        			    
