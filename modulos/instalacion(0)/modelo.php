@@ -26,6 +26,17 @@
 			    "type"              => "input",
 			    "htmlentities"      => "false",			    
 			),
+			"server_produccion"	    	=>array(
+			    "title"             => "Server Produccion",
+			    "type"              => "input",
+			    "htmlentities"      => "false",			    
+			),
+			"server_developer"	    	=>array(
+			    "title"             => "Server Developer",
+			    "type"              => "input",
+			    "htmlentities"      => "false",			    
+			),
+
 		);				
 		##############################################################################	
 		##  Metodos	
@@ -78,9 +89,28 @@
     	 	
 		}
 		##############################################################################	
+   		public function __PROCCESS_SERVER($datas=NULL)
+    	{    	    
+            foreach($datas as $index=>$data)
+            {
+                $datas[$index]="\"$data\"";
+            }            
+            return "array(" . implode(",",$datas) . ");";
+        }
+		##############################################################################	
    		public function __CREAR_CONECCION($datas=NULL)
     	{
+			rename("modulos/instalacion/", "modulos/instalacion(0)/");
+            
+            $server_produccion  =$this->__PROCCESS_SERVER(explode(",",$datas["server_produccion"]));
+            $server_developer   =$this->__PROCCESS_SERVER(explode(",",$datas["server_developer"]));
+
+
+
     		$txt="<?php	
+		        $"."_SESSION[\"var\"][\"server_true\"]		=$server_produccion
+		        $"."_SESSION[\"var\"][\"server_error\"]	    =$server_developer
+
 				class basededatos 
 				{    
 					public function __SYS_DB()
@@ -95,13 +125,13 @@
 						);
 					}
 				}
-			?>";
-			$f = fopen("nucleo/INSTALACION.PHP", "w+");
+?>";
+			$f = fopen("nucleo/basededatos.php", "w+");
 			fwrite($f,$txt,strlen($txt));
 			fclose($f);    
 			 		    	
-			rename("modulos/instalacion/", "modulos/instalacion(0)/");
-			header("Location:../modulo/");			
+			//rename("modulos/instalacion/", "modulos/instalacion(0)/");
+			header("Location:../company/");			
 		}
 		##############################################################################	
    		public function __SAVE($datas=NULL,$option=NULL)

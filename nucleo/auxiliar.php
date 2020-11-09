@@ -380,9 +380,11 @@
                     </a>	
                 </td>
 */
+                #if(@$_SESSION["user"]["name"]!="Iniciar Sesion" AND count($_SESSION["user"])>1)
 
                 $cerrar_sesion="";
-			    if(@$_SESSION["user"]["name"]!="Iniciar Sesion" AND count($_SESSION["user"])>1)
+                
+                if(!in_array($_SESSION["user"]["name"],array("Iniciar Sesion",""))  AND count($_SESSION["user"])>1)	
 			    {			    			    			    
                     $cerrar_sesion="
                         <td  style=\"color:white; padding: 0px 5px 0px 5px;\"> 
@@ -410,7 +412,10 @@
                 ";				
 				$words["system_img"]           	="";
 
+
+
                 $words							=$this->__MENU($words);
+
 			    if(@$_SESSION["user"]["name"]!="Iniciar Sesion" AND count($_SESSION["user"])>1)
 			    {			    			    			    
 				    if(isset($_SESSION["company"]["razonSocial"]) AND isset($_SESSION["user"]["name"]))
@@ -542,178 +547,199 @@
 		}	
 		public function __MENU($words)
 		{  			
-			$option_conf=array();
+            if($_SESSION["var"]["vpath"]!="instalacion/" )
+            {
+			    $option_conf=array();
 
-			$option_conf["open"]	=1;
-			$option_conf["close"]	=1;			
-			
-			#if(@$_SESSION["company"] AND @$_SESSION["company"]["id"] AND @$_SESSION["user"]["id"])
-			#if(@$_SESSION["user"]["id"])
-			{
+			    $option_conf["open"]	=1;
+			    $option_conf["close"]	=1;			
 			    
-				$comando_sql        ="
-                    select
-	                    distinct(m.id) as id_m, 
-	                    m.*
-                    from 
-	                    users u 
-                        JOIN user_group ug ON u.id=ug.user_id     
-                        JOIN groups g ON g.id=ug.perfil AND g.name!='No disponible' 
-	                    JOIN menu m ON m.id=g.menu_id OR g.menu_id =0 AND ug.menu_id=m.id
-		            WHERE 1=1
-			            AND ug.perfil!=0
-			            AND u.id='{$_SESSION["user"]["id"]}'
-			        GROUP BY  m.id    
-				";
-				#$this->__PRINT_R($comando_sql);
-				$datas_menu =$this->__EXECUTE($comando_sql, $option_conf);			
-
-                $menu_web=0;
-                if(count($datas_menu)==0)
-                {    
-                    $menu_web=1;
+			    #if(@$_SESSION["company"] AND @$_SESSION["company"]["id"] AND @$_SESSION["user"]["id"])
+			    #if(@$_SESSION["user"]["id"])
+			    {
+			        
 				    $comando_sql        ="
-		                select 	distinct(m.id) as id_m,   m.*
-		                from    menu m
-		                WHERE 1=1  AND m.name='Web'
-			            GROUP BY  m.id    
-				    ";				
-    				$datas_menu =$this->__EXECUTE($comando_sql, $option_conf);	
-    				$_SESSION["var"]["menu"]                =$datas_menu[0]["id"];    				
-    			}	
-			
-			
-				$menu_principal="";
-				$menu_html								="";
-				$option_html                ="";
-				foreach($datas_menu as $data_menu)
-				{
-				    $link								=$data_menu["link"]."&sys_menu=".$data_menu["id"] . $data_menu["variables"];				
-					if($_SESSION["var"]["menu"]==$data_menu["id"])
-
-						$menu_principal=$data_menu["name"];
-					
-					@$option_html	.="
-						<li><a href=\"{$link}\">{$data_menu["name"]}</a></li>
-					";
-				}
-				if(count($datas_menu)>1)
-				{
-				    $menu_html="
-						<ul class=\"submenu\">
-							$option_html
-						</ul>				    
-				    ";
-				
-				}
-				
-				$menu_html="				
-					<li>
-					    <a href=\"#\">
-					        
-					        <font size=\"4\" style=\"color:SteelBlue;\">
-					            <i class=\"fas fa-bars\"></i>
-					            <b> {$menu_principal}</b>
-				            </font>
-				        </a>
-                        $menu_html
-					</li>					
-					<li>&nbsp; &nbsp; &nbsp; &nbsp; </li>					
-				";	
-
-				$words["system_menu"]		    		=$menu_html;
-						
-				$sys_menu								=@$_SESSION["var"]["menu"];			
-				
-				if($menu_web==0)
-				    $comando_sql        ="
-		                select 
-		                	m.id AS id_m, 
-			                m.*
-		                from 
-			                users u JOIN 
-			                user_group ug ON u.id=ug.user_id JOIN
-			                groups g ON g.id=ug.perfil JOIN
-			                permiso p ON p.usergroup_id=ug.perfil AND p.s=1 JOIN
-			                menu m ON m.id=p.menu_id 
-		                WHERE  1=1
+                        select
+	                        distinct(m.id) as id_m, 
+	                        m.*
+                        from 
+	                        users u 
+                            JOIN user_group ug ON u.id=ug.user_id     
+                            JOIN groups g ON g.id=ug.perfil AND g.name!='No disponible' 
+	                        JOIN menu m ON m.id=g.menu_id OR g.menu_id =0 AND ug.menu_id=m.id
+		                WHERE 1=1
 			                AND ug.perfil!=0
 			                AND u.id='{$_SESSION["user"]["id"]}'
-			                AND parent='$sys_menu'
-			                AND m.type='submenu'
-			            GROUP BY  m.id        
-				    ";				
-				else
-				    $comando_sql        ="
-		                select 
-		                	m.id AS id_m, 
-			                m.*
-		                from 
-			                menu m
-		                WHERE  1=1
-			                AND parent='$sys_menu'
-			                AND m.type='submenu'
-			            GROUP BY  m.id        
-				    ";				
+			            GROUP BY  m.id    
+				    ";
+				    #$this->__PRINT_R($comando_sql);
+				    $datas_menu =$this->__EXECUTE($comando_sql, $option_conf);			
 
-				$datas_submenu =$this->__EXECUTE($comando_sql,$option_conf);
-									
-									
-				$submenu_html							="";
-			
-				foreach($datas_submenu as $data_submenu)
-				{
-					$alertas="";
-				
-					#$datas_opcion  						=$menu->opcion_sesion($data_submenu["id"]);
-				
-					$comando_sql        ="
-				        select
-				        	distinct(m.id) AS id_m,  
-					        m.*
-				        from 
-					        users u JOIN 
-					        user_group ug ON u.id=ug.user_id JOIN
-					        groups g ON g.id=ug.perfil JOIN
-					        permiso p ON p.usergroup_id=ug.perfil JOIN
-					        menu m ON m.id=p.menu_id 
-				        where  1=1
-					        AND ug.perfil!=0
-					        AND u.id={$_SESSION["user"]["id"]}
-					        AND parent={$data_submenu["id"]}
-					        AND m.type='opcion'
-					    GROUP BY  m.id            
-					";
-					$datas_opcion =$this->__EXECUTE($comando_sql,$option_conf);
-				
-					$option_html	="";
-					foreach($datas_opcion as $data_opcion)
-					{
+                    $menu_web=0;
+                    if(count($datas_menu)==0)
+                    {    
+                        $menu_web=1;
+				        $comando_sql        ="
+		                    select 	distinct(m.id) as id_m,   m.*
+		                    from    menu m
+		                    WHERE 1=1  AND m.name='Web'
+			                GROUP BY  m.id    
+				        ";				
+        				$datas_menu =$this->__EXECUTE($comando_sql, $option_conf);	
+        				if(is_array($datas_menu) AND isset($datas_menu[0]))    				
+        				    $_SESSION["var"]["menu"]                =$datas_menu[0]["id"];    				
+        			}	
+			    
+			    
+				    $menu_principal="";
+				    $menu_html								="";
+				    $option_html                ="";
+				    foreach($datas_menu as $data_menu)
+				    {
+				        $link								=$data_menu["link"]."&sys_menu=".$data_menu["id"] . $data_menu["variables"];				
+					    if($_SESSION["var"]["menu"]==$data_menu["id"])
 
-						$link			=$data_opcion["link"]."&sys_menu={$sys_menu}" . $data_opcion["variables"];
-						$option_html	.="
-							<li><a href=\"{$link}\">{$data_opcion["name"]}</a></li>
-						";
-					}	
-					
-					
-					if($menu_web==0)    $link="#";					    
-					else                $link			=$data_submenu["link"]."&sys_menu={$sys_menu}" . $data_submenu["variables"];
-					
-					
-					
-					
-					$submenu_html	.="
-						<li><a href=\"$link\"><b>{$data_submenu["name"]}</b></a>
-							<ul class=\"submenu\">
-								$option_html
-							</ul>
-						</li>					
-					";
-				}
-				$words["system_submenu"]	    		=$submenu_html;
-			
-			}			
+						    $menu_principal=$data_menu["name"];
+					    
+					    @$option_html	.="
+						    <li><a href=\"{$link}\">{$data_menu["name"]}</a></li>
+					    ";
+				    }
+				    if(count($datas_menu)>1)
+				    {
+				        $menu_html="
+						    <ul class=\"submenu\">
+							    $option_html
+						    </ul>				    
+				        ";
+				    
+				    }
+				    
+				    $menu_html="				
+					    <li>
+					        <a href=\"#\">
+					            
+					            <font size=\"4\" style=\"color:SteelBlue;\">
+					                <i class=\"fas fa-bars\"></i>
+					                <b> {$menu_principal}</b>
+				                </font>
+				            </a>
+                            $menu_html
+					    </li>					
+					    <li>&nbsp; &nbsp; &nbsp; &nbsp; </li>					
+				    ";	
+
+				    $words["system_menu"]		    		=$menu_html;
+						    
+				    $sys_menu								=@$_SESSION["var"]["menu"];			
+				    
+				    if($menu_web==0)
+				        $comando_sql        ="
+		                    select 
+		                    	m.id AS id_m, 
+			                    m.*
+		                    from 
+			                    users u JOIN 
+			                    user_group ug ON u.id=ug.user_id JOIN
+			                    groups g ON g.id=ug.perfil JOIN
+			                    permiso p ON p.usergroup_id=ug.perfil AND p.s=1 JOIN
+			                    menu m ON m.id=p.menu_id 
+		                    WHERE  1=1
+			                    AND ug.perfil!=0
+			                    AND u.id='{$_SESSION["user"]["id"]}'
+			                    AND parent='$sys_menu'
+			                    AND m.type='submenu'
+			                GROUP BY  m.id        
+				        ";				
+				    else
+				        $comando_sql        ="
+		                    select 
+		                    	m.id AS id_m, 
+			                    m.*
+		                    from 
+			                    menu m
+		                    WHERE  1=1
+			                    AND parent='$sys_menu'
+			                    AND m.type='submenu'
+			                GROUP BY  m.id        
+				        ";				
+
+				    $datas_submenu =$this->__EXECUTE($comando_sql,$option_conf);
+									    
+									    
+				    $submenu_html							="";
+			    
+				    foreach($datas_submenu as $data_submenu)
+				    {
+					    $alertas="";
+				    
+					    #$datas_opcion  						=$menu->opcion_sesion($data_submenu["id"]);
+				    
+					    $comando_sql        ="
+				            select
+				            	distinct(m.id) AS id_m,  
+					            m.*
+				            from 
+					            users u JOIN 
+					            user_group ug ON u.id=ug.user_id JOIN
+					            groups g ON g.id=ug.perfil JOIN
+					            permiso p ON p.usergroup_id=ug.perfil JOIN
+					            menu m ON m.id=p.menu_id 
+				            where  1=1
+					            AND ug.perfil!=0
+					            AND u.id={$_SESSION["user"]["id"]}
+					            AND parent={$data_submenu["id"]}
+					            AND m.type='opcion'
+					        GROUP BY  m.id            
+					    ";
+					    $datas_opcion =$this->__EXECUTE($comando_sql,$option_conf);
+				    
+					    $option_html	="";
+					    foreach($datas_opcion as $data_opcion)
+					    {
+
+						    $link			=$data_opcion["link"]."&sys_menu={$sys_menu}" . $data_opcion["variables"];
+						    $option_html	.="
+							    <li><a href=\"{$link}\">{$data_opcion["name"]}</a></li>
+						    ";
+					    }	
+					    
+					    
+					    if($menu_web==0)    $link="#";					    
+					    else                $link			=$data_submenu["link"]."&sys_menu={$sys_menu}" . $data_submenu["variables"];
+					    
+					    
+					    
+					    
+					    $submenu_html	.="
+						    <li><a href=\"$link\"><b>{$data_submenu["name"]}</b></a>
+							    <ul class=\"submenu\">
+								    $option_html
+							    </ul>
+						    </li>					
+					    ";
+				    }
+				    $words["system_submenu"]	    		=$submenu_html;			    
+			    }
+            }
+            else
+            {
+                $words["system_submenu"]	    		="";
+             
+                
+			    $words["system_menu"]="				
+				    <li>
+				        <a href=\"#\">				            
+				            <font size=\"4\" style=\"color:SteelBlue;\">
+				                <i class=\"fas fa-bars\"></i>
+				                <b>Configuracion del FrameWork</b>
+			                </font>
+			            </a>
+				    </li>					
+			    ";	
+                
+                
+            }    		
 			return $words;
 		} 
 
@@ -3497,8 +3523,8 @@
 		
 		function cerrar_conexion()
 		{
-			
-		    $this->OPHP_conexion->close();
+			if(isset($this->OPHP_conexion) AND is_object($this->OPHP_conexion) AND method_exists($this->OPHP_conexion,'query'))
+    		    $this->OPHP_conexion->close();
 		}	
 		
 		

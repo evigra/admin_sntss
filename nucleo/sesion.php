@@ -22,16 +22,23 @@
 		if(!isset($_SESSION["company"]["nombre"]))		@$_SESSION["company"]["abreviatura_web"]	=" ";								
 
 	    if(!isset($_SESSION["user"]))		            @$_SESSION["user"]					    =array();
-		if(!isset($_SESSION["user"]["name"]))		    @$_SESSION["user"]["name"]		        ="Iniciar Sesion";
+	
+		if(!isset($_SESSION["user"]["name"]))
+		{
+		    
+		    if($_SESSION["var"]["vpath"]!="instalacion/" )		    @$_SESSION["user"]["name"]		        ="Iniciar Sesion";
+		    else                                                    @$_SESSION["user"]["name"]		        ="";
+		}
+		
+		
+		
 		if(!isset($_SESSION["user"]["id"]))		        @$_SESSION["user"]["id"]		        =0;
 
-
-
-						
+					
 		$_SESSION["var"]["false"]			=array(0,"0","false", "no");
 		$_SESSION["var"]["true"]			=array(1,"1","true", "yes","si");
-		$_SESSION["var"]["server_true"]		=array("www.solesgps.com","solesgps.com","sntss.solesgps.com","raulmartinez.solesgps.com");
-		$_SESSION["var"]["server_error"]	=array("localhost","developer.solesgps.com");		
+		#$_SESSION["var"]["server_true"]		=array("www.solesgps.com","solesgps.com","sntss.solesgps.com","raulmartinez.solesgps.com");
+		#$_SESSION["var"]["server_error"]	=array("localhost","developer.solesgps.com");		
 		$_SESSION["var"]["print"]			=array("print_report","print_excel","print_pdf");		
 		$_SESSION["var"]["datetime"]		=date("Y-m-d H:i:s" , strtotime ("-7 hour", strtotime(date("Y-m-d H:i:s"))));
 		$_SESSION["var"]["date"]			=date("Y-m-d" , strtotime ("-7 hour", strtotime(date("Y-m-d H:i:s"))));		

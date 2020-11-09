@@ -7,6 +7,10 @@
 	$objeto->words["companyVision"]                ="Ser un equipo ejecutivo con capacidad de servir y escuchar a cada uno de los trabajadores dando respuesta pronta a cada una de sus necesidades laborales.";
 	$objeto->words["companyContact"]               ="<b>LLamanos Aqui </b><br>312 129 0333<br>314 352 0972<br><br><b>Escribenos Aqui</b>contacto@raul.com<br>";
 	
+	
+	
+
+	
 	$objeto->words["system_module"]             =$objeto->__VIEW_SHOW();
 	$objeto->words                              =$objeto->__INPUT($objeto->words,$objeto->sys_fields);      
 

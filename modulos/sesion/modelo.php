@@ -61,6 +61,9 @@
 		##############################################################################
 		public function __CONSTRUCT($option=null)
 		{			
+		    #$this->__PRINT_R($_SERVER);	    	 
+		
+		
 			$return = parent::__CONSTRUCT($option);			
 
 			if(isset($_GET["cookie"]) AND isset($_COOKIE['SolesGPS']) AND !isset($_SESSION["var"]["action"]))

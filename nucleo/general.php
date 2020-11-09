@@ -72,6 +72,7 @@
 			    if($this->sys_name!="general" AND $this->sys_recursive<3)
 			    {
 				    $this->__REQUEST();		
+				    
 				    $this->__CREATE_OBJ();
 					@include("nucleo/l18n/" . @$_SESSION["user"]["l18n"].".php");			    
 				    if(file_exists($this->sys_var["l18n"] . @$_SESSION["user"]["l18n"].".php"))
@@ -760,14 +761,12 @@
     	##############################################################################	   	
 		public function __EXECUTE($comando_sql, $option=array("open"=>1,"close"=>1))
     	{
-    		if(is_string($option))
-    		{
-    			$option=array("open"=>1,"close"=>1);
-    		}
+    	    if(is_string($option))			$option=array("open"=>1,"close"=>1);
     	
     		$return=array();    		    		
     		
     		if(@$this->sys_sql=="") 		$this->sys_sql=$comando_sql;
+    		
     		
 	   		if(is_array($option))
     		{
@@ -775,7 +774,7 @@
 				{
 		        	echo "<div class=\"echo\" style=\"display:none;\" title=\"{$option["echo"]}\">".$this->sys_sql."</div>";
 		        }	
-    			if(isset($option["open"]))	
+    			if(isset($option["open"]) AND $option["open"]==1)	
     			{    			
     				$this->abrir_conexion();
     				if(isset($option["e_open"])  AND $this->sys_enviroments	=="DEVELOPER" AND @$this->sys_private["action"]!="print_pdf")
@@ -784,11 +783,11 @@
     		}
 
 			$row=0;				
-			if(is_object($this->OPHP_conexion)) 
+			if(isset($this->OPHP_conexion) AND is_object($this->OPHP_conexion) AND method_exists($this->OPHP_conexion,'query')) 
 			{
 				$resultado	= $this->OPHP_conexion->query($comando_sql);
 				
-				if(isset($this->OPHP_conexion->error) AND in_array($_SERVER["SERVER_NAME"],$_SESSION["var"]["server_error"]) AND $this->OPHP_conexion->error!="" AND $this->sys_enviroments	=="DEVELOPER" AND @$this->sys_private["action"]!="print_pdf")
+				if(isset($this->OPHP_conexion->error) AND isset($_SESSION["var"]["server_error"]) AND in_array($_SERVER["SERVER_NAME"],$_SESSION["var"]["server_error"]) AND $this->OPHP_conexion->error!="" AND $this->sys_enviroments	=="DEVELOPER" AND @$this->sys_private["action"]!="print_pdf")
 				{					
 					echo "
 						<div class=\"echo\" style=\"display:none;\" title=\"ERROR {$this->sys_object}\">
@@ -809,15 +808,12 @@
 					
 						
 			if(is_object(@$resultado)) 
-			{	
-					
+			{						
 				while($datos = $resultado->fetch_assoc())
-				{			
-				    
+				{							    
 				    #$this->__PRINT_R($datos);    
 					foreach($datos as $field =>$value)
-					{
-					
+					{					
 						if(is_string($field) AND !is_null($field))
 						{
 							#$value 					= html_entity_decode($value);
@@ -840,7 +836,7 @@
        		#/*
     		if(is_array($option))
     		{
-    			if(isset($option["close"]))	
+    			if(isset($option["close"]) AND $option["close"]==1)	
     			{
     				$this->cerrar_conexion();
     				    if(isset($option["e_close"]) AND in_array($_SERVER["SERVER_NAME"],$_SESSION["var"]["server_error"]) AND @$this->sys_private["action"]!="print_pdf")

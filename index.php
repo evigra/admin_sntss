@@ -13,16 +13,17 @@
 		$path_instalacion="modulos/instalacion/";
 		if(@file_exists($path_instalacion . "index.php"))						$sys_location	="Location:instalacion/";
 		else
-		
-		unset($_COOKIE['SolesGPS']);
-		
-		if(isset($_COOKIE['SolesGPS']) AND !isset($_SESSION["var"]["action"]))
-			$sys_location	="Location:sesion/&cookie=1";
-		elseif(in_array($_SERVER["SERVER_NAME"],@$_SESSION["var"]["server_true"]))	
-			$sys_location	="Location:webHome/";							
-		else																	
-			$sys_location	="Location:sesion/";
-		
+		{
+		    unset($_COOKIE['SolesGPS']);
+		    
+		    if(isset($_COOKIE['SolesGPS']) AND !isset($_SESSION["var"]["action"]))
+			    $sys_location	="Location:sesion/&cookie=1";
+		    elseif(in_array($_SERVER["SERVER_NAME"],@$_SESSION["var"]["server_true"]))	
+			    $sys_location	="Location:webHome/";							
+		    else													        						
+			    $sys_location	="Location:sesion/";
+        }				
+		#
 		header($sys_location);
 		exit;
 	}
@@ -43,4 +44,5 @@
 		header('Location:'.$_SESSION["var"]["vpath"]);		
 	}
 
+    #$objeto->__PRINT_R($_SERVER);	    	 
 ?>
