@@ -1,5 +1,4 @@
 <?php
-
 	class auxiliar extends basededatos 
 	{   
 		##############################################################################	
@@ -620,7 +619,7 @@
 					    <li>
 					        <a href=\"#\">
 					            
-					            <font size=\"4\" style=\"color:SteelBlue;\">
+					            <font size=\"4\">
 					                <i class=\"fas fa-bars\"></i>
 					                <b> {$menu_principal}</b>
 				                </font>
@@ -2395,6 +2394,7 @@
 
 			    	if(isset($this->sys_view_l18n) AND is_array($this->sys_view_l18n))	
 			    	{
+			    	    
 		    		    #$actions_lang["actions_selected"]	=@$this->sys_view_l18n["actions_selected"];
 			    		$actions_lang["actions_show"]		=@$this->sys_view_l18n["actions_show"];
 			    		$actions_lang["actions_write"]		=@$this->sys_view_l18n["actions_write"];

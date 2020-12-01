@@ -54,9 +54,9 @@
 												"path"	    =>"/var/lib/mysql/files/frame/file/",
 		);
 		$_SESSION["var"]["img"]			    =array(
-		                                        "grande"=>"450",
-		                                        "mediana"=>"290",
-		                                        "chica"=>"140",
+		                                        "grande"    =>"450",
+		                                        "mediana"   =>"290",
+		                                        "chica"     =>"140",
 		                                        "superchica"=>"10",
 		);
 
@@ -65,8 +65,13 @@
 												"group","modulos","permiso","sesion","cron",
 												"cron_history","position","positions","crons_history"
 		);
-		$_SESSION["var"]["server"]			=array_merge($_SESSION["var"]["server_true"], $_SESSION["var"]["server_error"]);
-
+    
+        if(isset($_SESSION["var"]["server_true"]))
+        {
+    		$_SESSION["var"]["server"]			=array_merge($_SESSION["var"]["server_true"], $_SESSION["var"]["server_error"]);
+        }
+        else
+            $_SESSION["var"]["server"]          =array("localhost");
 		#print_r($_GET);	
 
 		if(@$_GET["sys_action"]=="cerrar_sesion")
