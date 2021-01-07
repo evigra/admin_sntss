@@ -1155,8 +1155,8 @@
 			$datas		=$this->sys_fields;			
 			$return		=array();
 			
-			$this->__PRINT_R($_FILES);
-			$this->__PRINT_R($datas);
+			#$this->__PRINT_R($_FILES);
+			#$this->__PRINT_R($datas);
 			
     		foreach($datas as $campo=>$valor)
     		{
