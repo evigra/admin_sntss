@@ -61,19 +61,12 @@
 		##############################################################################
 		public function __CONSTRUCT($option=null)
 		{			
-		    #$this->__PRINT_R($_SERVER);	    	 
-		
-		
 			$return = parent::__CONSTRUCT($option);			
 
 			if(isset($_GET["cookie"]) AND isset($_COOKIE['SolesGPS']) AND !isset($_SESSION["var"]["action"]))
 			{
 				$cookie_md5		=$_COOKIE['SolesGPS'];
-				$user			=$this->sys_fields["user"]["obj"]->session_cookie($cookie_md5);				
-											
-				#$this->__PRINT_R($user);							
-												
-				#$this->__SET_SESSION($user);				
+				$user			=$this->sys_fields["user"]["obj"]->session_cookie($cookie_md5);															
 			}				
 			return $return;
 		}        
@@ -170,8 +163,6 @@
     		{
 				$user       			=$this->sys_fields["user"]["obj"]->session($datas["user"],$datas["pass"]);
 					
-				#$this->__PRINT_R($user);	
-						
 				if(count($user)>0)
 				{	
 					if($user["email"]==$datas["user"])

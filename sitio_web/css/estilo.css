@@ -21,39 +21,19 @@
     .cabecera_titulo{
         font-size:              30;
     }    
-    @-moz-document url-prefix() {
-        .logo
-        {           
-            top:                    37px;        
-
-            position:               absolute;  
-            left:                   65px; 
-            width:                  120px;
-    
-        }
+    div.logo
+    {           
+        top:                    45px;        
+        position:               absolute;  
+        left:                   65px; 
+        width:                  160px;
     }
-    /* this gets chrome */
-    @media screen and (-webkit-min-device-pixel-ratio:0) { 
-        .logo
-        {           
-            top:                    17px !important;
-
-            position:               absolute;  
-            left:                   65px; 
-            width:                  120px;
-
-        }
-    }
-
-
     .cabecera{
         height:                 230px; 
     }
     .video{
         width:                  100%; 
-        height:                 400px; 
         z-index:                -1;             
-        overflow-y:             hidden;
     }
     
     .responsive4-1cols
@@ -94,6 +74,17 @@
         float:              left;
 	    width:				25%;
     }
+    .responsive2-1cols
+    {
+        float:              left;
+	    width:				50%;
+    }
+    .responsive1-1cols
+    {
+        float:              left;
+	    width:				100%;
+    }
+
 }
 
 
@@ -290,29 +281,37 @@ form
 
 
 .color1 {
-	background-color:       #00594C;
+	
+	background-color:       #1f4e8f;
 	color:                  white;
 }
 .fondo1
 {     
-    background: linear-gradient(to right, rgba(0, 89, 76,0.8), rgb(0, 89, 76,1)), url("../img/fondo_logo.png");
+    /* parte del color 1 */
+    background: linear-gradient(to right, rgba(31, 78, 143,0.8), rgb(31, 78, 143,1)), url("../img/fondo_logo.png");    
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
 
 .color2 {
-	background-color:       #9F2241;
+	background-color:       #4d4643;
 	color:                  white;
 }
 .fondo2
 {     
+	/* parte del color 2 */
     background: linear-gradient(to right, rgba(159, 34, 65,0.8), rgb(159, 34, 65,1)), url("../img/fondo_logo.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
 
 .color3 {
-	background-color:       Gainsboro;
+	background-color:       #ccc;
+}
+.fondo3
+{     
+	background-color:       #ddd;
+	color:                  #aaa;
 }
 
 div.report_form table tr td
@@ -514,6 +513,7 @@ table tr.odd:hover,
 	box-sizing:			border-box;
 	border-radius:		6px;
 	height:				30px;
+	border-color:       grey;
 }
 .d_none{display:		none;}
 .d_block{display:		block;}

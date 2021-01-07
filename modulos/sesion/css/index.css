@@ -1,62 +1,8 @@
-/* ####################################### */
-/* ######      DESKTOP GRANDE       ###### */
-/* ####################################### */
-@media (min-width:1200px)
-{
-    tr .color2
-    {
-        width:          33%;
-    }
-}
-
-
-/* ####################################### */
-/* ######      DESKTOP MEDIO        ###### */
-/* ####################################### */
-@media (max-width:1199px) and (min-width:992px)
-{
-    tr .color2
-    {
-        width:          33%;
-    }
-
-}
-
-
-/* ####################################### */
-/* ######         TABLETS           ###### */
-/* ####################################### */
-@media (max-width:991px) and (min-width:768px)
-{
-    tr .color2
-    {
-        width:          33%;
-    }
-
-}
-
-
-
-/* ####################################### */
-/* ######         MOVILES           ###### */
-/* ####################################### */
-@media (max-width:767px)
-{
-    tr .color2
-    {
-        width:          15%;
-    }
-    tr .color2:nth-child(2)
-    {
-        width:          70%;
-    }
-
-}
 
 
 
 .login-submit, .login-submit:before, .login-submit:after {
-  background: #373737;
+  background: #fff;
 }
 .login {
   position: relative;
@@ -64,7 +10,7 @@
   width: 100%;
   padding-right: 32px;
   font-weight: 300;
-  color: #a8a7a8;
+  color: #ccc;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.8);
 }
 .p{
