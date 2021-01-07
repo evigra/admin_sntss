@@ -144,7 +144,9 @@
 									if(isset($value["relation"]) AND $value["relation"]=="many2one" AND isset($value["class_field_m"]))
 									{
 										if($this->sys_recursive<3)
-										{																			
+										{
+										
+										
 											$eval="
 												$"."option=array();
 												$"."option[\"where\"]		=array(\"{$value["class_field_m"]}='{$datas[0][$value["class_field_o"]]}'\");
@@ -494,7 +496,7 @@
 				
 										
 				$this->__PDF($Output);		
-				exit;
+				#exit;
 			}
 			else echo $template;
 			#*/	
@@ -874,9 +876,6 @@
 				foreach($this->sys_fields as $campo =>$valor)
 				{				
 					$request_campo		="{$this->sys_name}_$campo";
-					
-					#echo "\n <br> $request_campo";
-					
 					if(isset($_REQUEST[$request_campo]))
 					{
 						$valor					=$_REQUEST[$request_campo];
@@ -936,22 +935,18 @@
 			
 			if(is_array($_FILES))
 			{
-			    $this->request["files"]			=$_FILES;
-			    
-			    /*
-			
-			    $this->__PRINT_R($_FILES);
 			    
 				$this->request["files"]=array();				
 				foreach($_FILES as $valor)
 				{
 					$this->request["files"]			=$valor;						
-				}
-				*/	
+				}	
 			}	
 						
 			if(!isset($this->request["sys_view"]))	$this->request["sys_view"]	="";	
 			
+			#if($this->sys_name=="orden_venta")
+			#	$this->__PRINT_R($this->sys_fields);
 		} 
 		##############################################################################
 
@@ -1154,10 +1149,6 @@
     	
 			$datas		=$this->sys_fields;			
 			$return		=array();
-			
-			$this->__PRINT_R($_FILES);
-			$this->__PRINT_R($datas);
-			
     		foreach($datas as $campo=>$valor)
     		{
 				if(isset($valor["relation"]) AND $valor["relation"]=="many2one")
@@ -1259,9 +1250,6 @@
 					),			
 				);	
 			}	
-			
-			#$this->__PRINT_R($_SESSION["pdf"]["template"]);
-			
 			$datos=$_SESSION["pdf"]["template"];
 			foreach($datos as $dato)
 			{
@@ -1271,15 +1259,13 @@
 
 			$pdf->lastPage();			
 
-
-            #/*
 			if(!isset($_SESSION["pdf"]["save_name"]))	$_SESSION["pdf"]["save_name"]=$_SESSION["pdf"]["title"];
 
 			if($Output=="S")
 				$_SESSION["pdf"]["file"] =$pdf->Output("prueba.pdf", $Output);
 			else	
 				$pdf->Output($_SESSION["pdf"]["save_name"], $Output);
-			#*/
+			
 			unset($_SESSION["pdf"]);
 			exit;
 		}		
@@ -2149,8 +2135,8 @@
 
 		public function __QR($option=null)
 		{			
-			$url="https://chart.googleapis.com/chart?chs=110x110&cht=qr&chl=" . urlencode($option);			
-			return "<img height=\"80\" border=\"0\" src=\"$url\">";
+			$url="https://chart.googleapis.com/chart?chs=91x91&cht=qr&chl=" . urlencode($option);			
+			return "<img height=\"76\" border=\"0\" src=\"$url\">";
 		} 		
 
 		##############################################################################    
