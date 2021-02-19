@@ -1542,7 +1542,27 @@
 					    } 
 					    ################################     
 					    if($valor["type"]=="file")	
-					    {					        
+					    {			
+					    
+					    	// analisarlo		        
+						    if(isset($this->sys_fields[$campo]["values"]) AND isset($this->sys_fields[$campo]["values"][0]))
+						    {
+						        $data_file                  =$this->sys_fields[$campo]["values"][0];						
+						        
+						        $words[$campo."._path"]       ="../modulos/files/file/{$data_file["id"]}.{$data_file["extension"]}";
+						        $words[$campo."._thumb"]      ="<img src=\"{$row[$field."._path"]}_thumb.jpg\">";
+						        $words[$campo."._small"]      ="<img src=\"{$row[$field."._path"]}_small.jpg\">";
+						        $words[$campo."._medium"]     ="<img src=\"{$row[$field."._path"]}_medium.jpg\">";
+						        $words[$campo."._big"]        ="<img src=\"{$row[$field."._path"]}_big.jpg\">";
+						        $words[$campo.".original"]    ="<img src=\"{$row[$field."._path"]}\">";
+						    }
+
+
+
+
+
+
+
 					        $words["$campo"]  ="<input id=\"$campo\" $attr name=\"{$this->sys_name}_$campo\" type=\"file\" class=\"formulario {$this->sys_name} $class\" >{$valor["br"]}$titulo";
 					        $agua="";
 					        $facebook="";
@@ -1558,6 +1578,8 @@
                                         </td>					            
 					            ";
 					        }
+					        
+					        
 					        if(in_array(@$valor["facebook"],$_SESSION["var"]["true"]))
 					        {
 					            $facebook="
@@ -1582,6 +1604,23 @@
                                     </tr>
                                 </table>
                             ";					        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 					    } 
 					    ################################   
 					    if($valor["type"]=="show_file")	
