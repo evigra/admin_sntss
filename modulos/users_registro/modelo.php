@@ -31,6 +31,7 @@
                     "17" => 5,
                     "21" => 4
                 );
+                /*
                 if($datas["celular"]!="")
                 {	
                     $vars["telefono"]   ="521".$datas["celular"];                    
@@ -45,6 +46,7 @@ http://raulmartinez.solesgps.com/users_registro/
 ";
 	                $this->__WA($vars);
 	            }
+	            */
 	
 		        return parent::__SAVE($datas,$option);
 	        }
