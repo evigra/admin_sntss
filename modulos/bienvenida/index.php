@@ -3,7 +3,7 @@
 	$objeto										=new bienvenida();
 
 
-	$objeto->__SESSION();
+	#$objeto->__SESSION();
 
 	
 	$objeto->words["companyHome"]                  ="Aun en las circunstancias adversas hay que tener esperanza y fe. FE en lo que somos capaces de hacer y ESPERANZA en que llegado el momento lo haremos sin titubear";
