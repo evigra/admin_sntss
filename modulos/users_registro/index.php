@@ -3,7 +3,8 @@
 	
 	# TEMPLATES O PLANTILLAS ELEJIDAS PARA EL MODULO
 	$objeto->words["system_body"]	=	$objeto->__TEMPLATE($objeto->sys_html."system_body");	
-	$objeto->words["system_module"]	=	$objeto->__TEMPLATE($objeto->sys_html."system_module");
+	#$objeto->words["system_module"]	=	$objeto->__TEMPLATE($objeto->sys_html."system_module");
+	$objeto->words["system_module"]             =$objeto->__VIEW_CREATE();
 	
 	# CARGA DE ARCHIVOS EXTERNOS JS, CSS
 	$objeto->words["html_head_js"]	=	$objeto->__FILE_JS();
@@ -32,7 +33,7 @@
 	);
 
 	# CARGANDO VISTA Y CARGANDO CAMPOS A LA VISTA
-	$objeto->words["module_body"]				=$objeto->__VIEW_CREATE();	    	
+	#$objeto->words["module_body"]				=$objeto->__VIEW_CREATE();	    	
 	$objeto->words               				=$objeto->__INPUT($objeto->words,$objeto->sys_fields);    
     	    
     
