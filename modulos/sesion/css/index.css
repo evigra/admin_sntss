@@ -1,3 +1,83 @@
+/* ####################################### */
+/* ######      DESKTOP GRANDE       ###### */
+/* ####################################### */
+@media (min-width:1200px)
+{
+    .ingreso{
+        position:absolute; 
+        right:40px; 
+        top:40px; 
+        width:300px;
+    }
+    .localizanos{
+        position:absolute; 
+        left:40px; 
+        top:40px;
+        width:300px;
+    }
+
+
+
+}
+
+/* ####################################### */
+/* ######      DESKTOP MEDIO        ###### */
+/* ####################################### */
+@media (max-width:1199px) and (min-width:992px)
+{
+
+}
+
+/* ####################################### */
+/* ######         TABLETS           ###### */
+/* ####################################### */
+@media (max-width:991px) and (min-width:768px)
+{
+
+}
+
+/* ####################################### */
+/* ######         MOVILES           ###### */
+/* ####################################### */
+@media (max-width:767px)
+{
+    .ingreso{
+        position:absolute; 
+        right:40px; 
+        top:40px; 
+        width:300px;
+    }
+    .localizanos{
+        position:absolute; 
+        left:40px; 
+        top:40px;
+        width:300px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
