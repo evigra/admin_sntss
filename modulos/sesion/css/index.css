@@ -33,30 +33,59 @@
 /* ####################################### */
 @media (max-width:991px) and (min-width:768px)
 {
+    .ingreso{
+        position:absolute; 
+        right:40px; 
+        top:40px; 
+        width:200px;
+    }
+    .localizanos{
+        position:absolute; 
+        left:40px; 
+        top:40px;
+        width:200px;
+    }
+
 
 }
 
 /* ####################################### */
 /* ######         MOVILES           ###### */
 /* ####################################### */
-@media (max-width:767px)
+@media (max-width:767px) and (min-width:401px)
 {
     .ingreso{
         position:absolute; 
         right:40px; 
         top:40px; 
-        width:100px;
+        width:250px;
     }
     .localizanos{
         position:absolute; 
         left:40px; 
         top:40px;
-        width:100px;
+        width:250px;
     }
 
 }
 
 
+/* ####################################### */
+/* ######         MOVILES           ###### */
+/* ####################################### */
+@media (max-width:400px)
+{
+    .ingreso{
+        position:absolute; 
+        right:40px; 
+        top:40px; 
+        width:250px;
+    }
+    .localizanos{
+        visibility:             hidden;
+    }
+
+}
 
 
 
