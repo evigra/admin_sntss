@@ -24,16 +24,30 @@
 			),
 			"fecha_nacimiento"	    =>array(
 			    "title"             => "Fecha de Nacimiento",
-			    "type"              => "input",
+			    "type"              => "date",
 			    "attr"              => array("required"),
 			),			
 			"sexo"	    =>array(
 			    "title"             => "Sexo",
-			    "type"              => "input",
+			    "type"              => "select",
+			    "source"            =>array(
+			    	""=>"Seleccione una opcion",
+			    	"Masculino",
+			    	"Femenino",
+			    ),
+
 			),			
 			"parentesco"	    =>array(
 			    "title"             => "Parentesco",
-			    "type"              => "input",
+			    "type"              => "select",
+			    "source"            =>array(
+			    	""=>"Seleccione una opcion",
+			    	"Hij@",
+			    	"Papa",
+			    	"Mama",
+			    	
+			    	"Herman@",
+			    ),
 			),			
 
 			"files_id"	    =>array(

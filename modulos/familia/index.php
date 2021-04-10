@@ -30,7 +30,6 @@
 		);
 		$module_right=array(
 			array("create"=>"Crear"),
-			#array("write"=>"Modificar"),
 			array("kanban"=>"Kanban"),
 			array("report"=>"Reporte"),
 		);
@@ -38,9 +37,6 @@
 		# CARGANDO VISTA Y CARGANDO CAMPOS A LA VISTA
 		$objeto->words["module_body"]				=$objeto->__VIEW_CREATE();	    	
 		$objeto->words               				=$objeto->__INPUT($objeto->words,$objeto->sys_fields);    
-    	
-    	#$objeto->words["permisos"]	            	=$objeto->menu_obj->grupos_html();
-    	#$objeto->words["flotilla"]	            	=$objeto->device_obj->devices_user();
     }	
     elseif($objeto->sys_private["section"]=="write")
 	{
@@ -92,6 +88,11 @@
     }        
 	else
 	{
+	    $objeto->words["system_module"]             =$objeto->__VIEW_CREATE();
+	    $objeto->words               				=$objeto->__INPUT($objeto->words,$objeto->sys_fields);
+	
+	
+	    
 		# TITULO DEL MODULO
     	$module_title                	=	"Reporte de ";
 
@@ -102,7 +103,12 @@
 			array("kanban"=>"Kanban"),
 			array("report"=>"Reporte"),
 	    );
-	    
+			$module_left=array(
+			array("action"=>"Guardar"),
+			array("cancel"=>"Cancelar"),
+		);
+    
+	
 	    # CARGANDO VISTA Y CARGANDO CAMPOS A LA VISTA  
 		$option     								=	array();		
 		$data										=$objeto->__VIEW_REPORT($option);
@@ -111,7 +117,7 @@
     }
     
     
-	$objeto->words["module_title"]              ="$module_title Usuarios";
+	$objeto->words["module_title"]              ="$module_title Familia";
 	
 	$objeto->words["module_left"]               =$objeto->__BUTTON($module_left);
 	$objeto->words["module_center"]             ="";

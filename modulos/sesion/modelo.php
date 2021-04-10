@@ -131,7 +131,7 @@
 		        else										$sesion_start	="";
 		        
 		        if($user["sesion_start"]!="")   $locacion	=$user["sesion_start"];
-		        else							$locacion	="../alert/&sys_menu=1";
+		        else							$locacion	="../bienvenida/&sys_menu=27";
 		        
 		        $md5_id							=$user["md5_id"];
 		        

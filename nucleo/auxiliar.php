@@ -3777,7 +3777,7 @@
 					if(isset($data["title"]))		$title	=$data["title"];
 										
 			        foreach($data as $etiqueta =>$valor)
-			        {					       
+			        {					  
 			        	if(in_array($etiqueta,array("icon","text","title")))					       
 			        	{
 			        		unset($data["$etiqueta"]);
