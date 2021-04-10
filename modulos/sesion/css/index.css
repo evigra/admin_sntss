@@ -45,13 +45,13 @@
         position:absolute; 
         right:40px; 
         top:40px; 
-        width:300px;
+        width:100px;
     }
     .localizanos{
         position:absolute; 
         left:40px; 
         top:40px;
-        width:300px;
+        width:100px;
     }
 
 }
