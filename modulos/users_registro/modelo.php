@@ -10,10 +10,16 @@
 		##  Metodos	
 		##############################################################################
 		public function __CONSTRUCT($option=null)
-		{			    
-            $this->sys_fields["files_id"]["agua"]       =1;
+		{	
+			parent::__CONSTRUCT(array("set"=>array("sesion"=>"true")));			
+            
+			$this->sys_fields["sesion"]	    =array(
+			    "title"             => "Usuario",
+			    "type"              => "input",	   			   
+			    "class_name"       	=> "sesion",			    
+			);
 
-			parent::__CONSTRUCT($option);
+            parent::__CONSTRUCT();
 		}
    		public function __SAVE($datas=NULL,$option=NULL)
     	{
@@ -47,8 +53,28 @@ http://raulmartinez.solesgps.com/users_registro/
 	                $this->__WA($vars);
 	            }
 	            */
+
+                #$this->__PRINT_R($datas);	
+		        $save   = parent::__SAVE($datas,$option);
 	
-		        return parent::__SAVE($datas,$option);
+	            $data_option=array(
+	                "user"=>$datas["email"],
+	                "pass"=>$datas["password"],
+	            );    
+		        
+                $this->sys_fields["sesion"]["obj"]->__SAVE($data_option);
+  
+  
+  
+  
+  		        if($user["sesion_start"]!="")   $locacion	=$user["sesion_start"];
+		        else							$locacion	="../alert/&sys_menu=1";
+		        
+			        	
+			    $this->__PRINT_JS				=" window.location =\"$locacion\";  ";			
+
+  
+		        return $save;	        		        
 	        }
 		}
 	}

@@ -29,7 +29,7 @@
 			array("cancel"=>"Cancelar"),
 		);
 		$module_right=array(
-			#array("create"=>"Crear"),
+			array("create"=>"Crear"),
 			#array("write"=>"Modificar"),
 			array("kanban"=>"Kanban"),
 			array("report"=>"Reporte"),
@@ -53,7 +53,7 @@
 			array("cancel"=>"Cancelar"),
 		);
 		$module_right=array(
-			#array("create"=>"Crear"),
+			array("create"=>"Crear", "title"=>"Crear"),
 			#array("write"=>"Modificar"),
 			array("kanban"=>"Kanban"),
 			array("report"=>"Reporte"),
@@ -100,7 +100,7 @@
 			array("create"=>"Crear"),
 			#array("write"=>"Modificar"),
 			array("kanban"=>"Kanban"),
-			#array("report"=>"Reporte"),
+			array("report"=>"Reporte"),
 	    );
 	    
 	    # CARGANDO VISTA Y CARGANDO CAMPOS A LA VISTA  
