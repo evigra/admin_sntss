@@ -67,7 +67,7 @@ http://raulmartinez.solesgps.com/users_registro/
                     $this->send_mail($option_mail);
                 }
 
-                /*
+                #/*
 	
 	            $data_option=array(
 	                "user"=>$datas["email"],
@@ -87,7 +87,7 @@ http://raulmartinez.solesgps.com/users_registro/
 
   
 		        return $save;	        		        
-		        */
+		        #*/
 	        }
 		}
 	}

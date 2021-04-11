@@ -1107,7 +1107,7 @@
 				$boSend =  @mail("evigra@gmail.com", $option["title"], $message, $headers);
 				
 			}	
-			$this->__PRINT_R($option);
+			#$this->__PRINT_R($option);
 
 		}		
 		##############################################################################
