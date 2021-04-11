@@ -138,6 +138,12 @@
         float:              left;
 	    width:				25%;
     }
+    .responsive2-1cols
+    {
+        float:              left;
+	    width:				50%;
+    }
+
 }
 
 
@@ -177,6 +183,11 @@
         float:              left;
 	    width:				50%;
     }
+    .responsive2-1cols
+    {
+        float:              left;
+	    width:				99%;
+    }
 
     .responsive4-1cols:nth-child(3), .responsive4-1cols:nth-child(4) 
     {
@@ -209,7 +220,7 @@
         position:               absolute;  
         top:                    25px;        
         left:                   15px; 
-        width:                  50px;
+        width:                  40px;
     }
 
     .cabecera{
@@ -221,7 +232,7 @@
 	    width:				50%;
     }
 
-    .responsive4-1cols:nth-child(3), .responsive4-1cols:nth-child(4), #menu_company
+    .responsive4-1cols:nth-child(3), .responsive4-1cols:nth-child(4), #menu_company, #menu_user
     {
         display:                none;
     }

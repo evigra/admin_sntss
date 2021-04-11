@@ -54,6 +54,16 @@ http://raulmartinez.solesgps.com/users_registro/
 	            }
 	            */
 
+                if($datas["mail"]!="")
+                {
+                    $option_mail=array(
+                        "to"    =>$datas["mail"],
+                        "title" =>"SNTSS XXV :: Registro en sistema web",
+                        "html"  =>"Hola amigo trabajador.",
+                    );
+
+                    $this->send_mail($option_mail);
+                }
                 #$this->__PRINT_R($datas);	
 		        $save   = parent::__SAVE($datas,$option);
 	

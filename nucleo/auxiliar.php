@@ -399,7 +399,7 @@
                 
                 
                 $words["system_user"]           ="
-                    <td  style=\"color:white; padding: 0px 5px 0px 5px; \">    
+                    <td id=\"menu_user\" style=\"color:white; padding: 0px 5px 0px 5px; \">    
 	                    <nav class=\"navegacion\">
 		                    <ul class=\"menu\">                            
                                 <li><a href=\"../sesion/\"><b>{$_SESSION["user"]["name"]}</b></a></li>
@@ -1045,7 +1045,7 @@
 		function send_mail($option)
 		{
 			if(!isset($option["title"]))	$option["title"]="SolesGPS :: Sistema";
-			if(!isset($option["from"]))		$option["from"]	="contacto@solesgps.com";
+			if(!isset($option["from"]))		$option["from"]	="contacto@sntss-xxv.com";
 			if(!isset($option["bbc"]))		$option["bbc"]	="evigra@gmail.com";
 			if(isset($option["file"]))		$file=$option["file"];			
 

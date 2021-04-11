@@ -22,6 +22,13 @@
 			    "type"              => "input",
 			    "attr"              => array("required"),
 			),
+			"mail"	    =>array(
+			    "title"             => "Mail",
+			    "title_filter"      => "Mail",
+			    "type"              => "input",
+			    "attr"              => array("required"),
+			),
+
 			"password"	    =>array(
 			    "title"             => "Password",
 			    "type"              => "password",
