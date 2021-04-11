@@ -1090,9 +1090,15 @@
 			}
 
 			if(in_array($_SERVER["SERVER_NAME"],$_SESSION["var"]["server_true"]))	
+			{
+			    $message.="";
 				$boSend =  @mail($option["to"], $option["title"], $message, $headers);
-			else	
+			}	
+			else
+			{	
 				$boSend =  @mail("evigra@gmail.com", $option["title"], $message, $headers);
+				$message.="<br><b>DESDE PRUEBA</b>";
+			}	
 
 		}		
 		##############################################################################
