@@ -629,6 +629,7 @@
 
  	function ajustar_display()
  	{
+ 	    alert($(window).width());
  		if($("td#module_body").length>0 && $("div#module_body").length>0) 
  		{
  			//alert(1);
