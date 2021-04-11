@@ -934,7 +934,7 @@
 				$this->__REQUEST_AUX($campo,$valor);
 			}
 			
-			if(is_array($_FILES))
+			if(is_array($_FILES) AND count($_FILES)>0 AND @$_SESSION["var"]["modulo"]==$this->sys_object)
 			{
 			    $this->request["files"]			=$_FILES;
 			    
