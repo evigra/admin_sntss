@@ -37,7 +37,7 @@
 					
 		$_SESSION["var"]["false"]			=array(0,"0","false", "no");
 		$_SESSION["var"]["true"]			=array(1,"1","true", "yes","si");
-		#$_SESSION["var"]["server_true"]		=array("www.solesgps.com","solesgps.com","sntss.solesgps.com","raulmartinez.solesgps.com");
+		$_SESSION["var"]["server_true"]		=array("www.sntss-xxv.com","sntss-xxv.com");
 		#$_SESSION["var"]["server_error"]	=array("localhost","developer.solesgps.com");		
 		$_SESSION["var"]["print"]			=array("print_report","print_excel","print_pdf");		
 		$_SESSION["var"]["datetime"]		=date("Y-m-d H:i:s" , strtotime ("-7 hour", strtotime(date("Y-m-d H:i:s"))));
