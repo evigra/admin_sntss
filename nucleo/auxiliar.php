@@ -1091,13 +1091,14 @@
 
 			if(in_array($_SERVER["SERVER_NAME"],$_SESSION["var"]["server_true"]))	
 			{
-			    $message.="";
+			    $message.="<br><b>DESDE PRODUCCION</b>";
 				$boSend =  @mail($option["to"], $option["title"], $message, $headers);
 			}	
 			else
 			{	
+			    $message.="<br><b>DESDE PRUEBA</b>";
 				$boSend =  @mail("evigra@gmail.com", $option["title"], $message, $headers);
-				$message.="<br><b>DESDE PRUEBA</b>";
+				
 			}	
 
 		}		
