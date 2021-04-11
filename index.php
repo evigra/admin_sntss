@@ -1,7 +1,7 @@
 <?php
 
 	require_once("nucleo/sesion.php");	
-
+    phpinfo();
 	##############################################################################	
 	##  Propiedades	
 	##############################################################################
@@ -22,7 +22,7 @@
 		    if(isset($_COOKIE['SolesGPS']) AND !isset($_SESSION["var"]["action"]))
 			    $sys_location	="Location:sesion/&cookie=1";
 		    elseif(isset($_SESSION["var"]["server_true"]) AND in_array($_SERVER["SERVER_NAME"],@$_SESSION["var"]["server_true"]))	
-			    $sys_location	="Location:webHome/";							
+			    $sys_location	="Location:session/";							
 		    else													        						
 			    $sys_location	="Location:sesion/";
 			    
