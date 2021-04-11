@@ -207,9 +207,9 @@
     .logo
     {
         position:               absolute;  
-        top:                    10px;        
-        left:                   20px; 
-        width:                  90px;
+        top:                    25px;        
+        left:                   15px; 
+        width:                  50px;
     }
 
     .cabecera{
@@ -221,7 +221,7 @@
 	    width:				50%;
     }
 
-    .responsive4-1cols:nth-child(3), .responsive4-1cols:nth-child(4) 
+    .responsive4-1cols:nth-child(3), .responsive4-1cols:nth-child(4), #menu_company
     {
         display:                none;
     }
