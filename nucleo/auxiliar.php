@@ -938,7 +938,7 @@
 			{
 			    $this->request["files"]			=$_FILES;
 			    
-			    /*
+			    #/*
 			
 			    $this->__PRINT_R($_FILES);
 			    
@@ -947,7 +947,7 @@
 				{
 					$this->request["files"]			=$valor;						
 				}
-				*/	
+				#*/	
 			}	
 						
 			if(!isset($this->request["sys_view"]))	$this->request["sys_view"]	="";	
