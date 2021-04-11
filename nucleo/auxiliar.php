@@ -934,13 +934,14 @@
 				$this->__REQUEST_AUX($campo,$valor);
 			}
 			
-			if(is_array($_FILES) AND count($_FILES)>0 AND @$_SESSION["var"]["modulo"]==$this->sys_object)
+			#if(is_array($_FILES) AND count($_FILES)>0 AND @$_SESSION["var"]["modulo"]==$this->sys_object)
+			if(is_array($_FILES) AND count($_FILES)>0)
 			{
 			    $this->request["files"]			=$_FILES;
 			    
 			    #/*
 			
-			    $this->__PRINT_R($_FILES);
+			    #$this->__PRINT_R($_FILES);
 			    
 				$this->request["files"]=array();				
 				foreach($_FILES as $valor)
