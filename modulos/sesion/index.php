@@ -13,11 +13,11 @@
 	$objeto->words["html_head_js"]              =$objeto->__FILE_JS();								# ARCHIVOS JS DEL MODULO
 	$objeto->words["html_head_css"]             =$objeto->__FILE_CSS();
 	
-	$objeto->words["module_title"]              ="IMSS Colima :: Iniciar sesion";
+	$objeto->words["module_title"]              ="Iniciar sesion";
 	
-    $objeto->words["html_head_description"] =   "EN LA EMPRESA SOLESGPS, CONTAMOS CON UN MODULO PARA ADMINISTRAR EL REGISTRO DE POSICIONES RECIBIDAS DURANTE EL RASTREO SATELITAL.";
-    $objeto->words["html_head_keywords"]    =   "GPS, RASTREO, MANZANILLO, SATELITAL, CELULAR, VEHICULAR, VEHICULO, TRACTO, LOCALIZACION, COLIMA, SOLES, SATELITE, GEOCERCAS, STREET VIEW, MAPA";
-    $objeto->words["html_head_title"]           ="IMSS Colima :: {$objeto->words["module_title"]}";
+    $objeto->words["html_head_description"] =   "En el SNTSS XXV tenemos la mision de ser un equipo con capacidad de servir y escuchar a cada uno de los trabajadores dando respuesta pronta a cada una de sus necesidades laborales";
+    $objeto->words["html_head_keywords"]    =   "SNTSS, XXV, Colima";
+    $objeto->words["html_head_title"]           ="SNTSS XXV :: {$objeto->words["module_title"]}";
     
     $objeto->html                               =$objeto->__VIEW_TEMPLATE("system", $objeto->words);
     $objeto->__VIEW($objeto->html);

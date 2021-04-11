@@ -43,10 +43,11 @@
 	$objeto->words["module_center"]             ="";
 	$objeto->words["module_right"]              =$objeto->__BUTTON($module_right);
 	
-	$objeto->words["html_head_description"]	=	"Forma parte de nuestra plataforma, registra tus datos para que apoyemos a RML en el SNTSS Colima";
-	$objeto->words["html_head_keywords"] 	=	"SNTSS, IMSS";
-
-	$objeto->words["html_head_title"]           ="{$objeto->words["module_title"]}";
+	$objeto->words["module_title"]              ="Registrate en nuestra plataforma";
+	
+    $objeto->words["html_head_description"] =   "En el SNTSS XXV tenemos la mision de ser un equipo con capacidad de servir y escuchar a cada uno de los trabajadores dando respuesta pronta a cada una de sus necesidades laborales";
+    $objeto->words["html_head_keywords"]    =   "SNTSS, XXV, Colima";
+    $objeto->words["html_head_title"]           ="SNTSS XXV :: {$objeto->words["module_title"]}";
     
     $objeto->html                               =$objeto->__VIEW_TEMPLATE("system", $objeto->words);
     $objeto->__VIEW($objeto->html);    
