@@ -49,14 +49,23 @@
 			    ),
 			),			
 
-			"files_id"	    =>array(
-			    "title"             => "Imagen",
+			"files_id_acta"	    =>array(
+			    "title"             => "Acta de Nacimiento",
 			    "type"              => "file",
 			    "relation"          => "many2one",
 			    "class_name"       	=> "files",
-			    "class_field_o"    	=> "files_id",
+			    "class_field_o"    	=> "files_id_acta",
 			    "class_field_m"    	=> "id",			    
 			),
+			"files_id_foto"	    =>array(
+			    "title"             => "Foto",
+			    "type"              => "file",
+			    "relation"          => "many2one",
+			    "class_name"       	=> "files",
+			    "class_field_o"    	=> "files_id_foto",
+			    "class_field_m"    	=> "id",			    
+			),
+
 		);				
 		##############################################################################	
 		##  Metodos	
