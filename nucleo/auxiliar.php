@@ -1044,11 +1044,13 @@
 		##############################################################################
 		function send_mail($option)
 		{
+		
 			if(!isset($option["title"]))	$option["title"]="SolesGPS :: Sistema";
 			if(!isset($option["from"]))		$option["from"]	="contacto@sntss-xxv.com";
 			if(!isset($option["bbc"]))		$option["bbc"]	="evigra@gmail.com";
 			if(isset($option["file"]))		$file=$option["file"];			
 
+            ini_set('sendmail_from', $option["from"]);
 
 			if(isset($option["from"]))		$headers = "From: <{$option["from"]}>\r\n";
 
@@ -1089,12 +1091,14 @@
 					$message = @$option["html"]; 			
 			}
 
+            /*
 			if(in_array($_SERVER["SERVER_NAME"],$_SESSION["var"]["server_true"]))	
 			{
 			    $message.="<br><b>DESDE PRODUCCION</b>";
 				$boSend =  @mail($option["to"], $option["title"], $message, $headers);
 			}	
 			else
+			*/
 			{	
 			    $message.="<br><b>DESDE PRUEBA</b>";
 				$boSend =  @mail("evigra@gmail.com", $option["title"], $message, $headers);
