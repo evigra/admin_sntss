@@ -147,12 +147,12 @@
 /* ####################################### */
 @media (max-width:767px)and (min-width:401px)
 {
-    .w11{ width:                  98%;  }
-    .w22{ width:                  98%;  }    
-    .w33{ width:                  98%;  }    
-    .w55{ width:                  98%;  }    
-    .w66{ width:                  98%;  }    
-    .w99{ width:                  98%;  }    
+    .w11{ width:                  11%;       float:                  left;    }
+    .w22{ width:                  22%;       float:                  left;    }    
+    .w33{ width:                  33%;       float:                  left;    }    
+    .w55{ width:                  55%;       float:                  left;    }    
+    .w66{ width:                  66%;       float:                  left;    }    
+    .w99{ width:                  99%;  }    
 
     .foto_logo{
         width:                  270px;
