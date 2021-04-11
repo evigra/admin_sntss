@@ -38,14 +38,23 @@
 			    "title"             => "Celular",
 			    "type"              => "input",
 			),			
-			"files_id"	    =>array(
-			    "title"             => "Imagen",
+			"files_id_tarjeton"	    =>array(
+			    "title"             => "Tarjeton",
 			    "type"              => "file",
 			    "relation"          => "many2one",
 			    "class_name"       	=> "files",
-			    "class_field_o"    	=> "files_id",
+			    "class_field_o"    	=> "files_id_tarjeton",
 			    "class_field_m"    	=> "id",			    
 			),
+			"files_id_foto"	    =>array(
+			    "title"             => "Foto para credencial",
+			    "type"              => "file",
+			    "relation"          => "many2one",
+			    "class_name"       	=> "files",
+			    "class_field_o"    	=> "files_id_foto",
+			    "class_field_m"    	=> "id",			    
+			),
+
 			"sesion_start"	    =>array(
 			    "title"             => "Modulo de inicio",
 			    "type"              => "autocomplete",
