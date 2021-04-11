@@ -69,6 +69,18 @@
 			    "title"             => "Activo",
 			    "type"              => "checkbox",
 			),				
+			"zona_participacion"	    =>array(
+			    "title"             => "Zona Participacion",
+			    "type"              => "select",
+			    "attr"              => array("required"),
+			    "source"            =>array(
+			    	" "=>"Seleccione una opcion",
+			    	"Colima",
+			    	"Manzanillo",
+			    	"Tecoman",			    	
+			    ),
+			),			
+
 		);				
 		##############################################################################	
 		##  Metodos	

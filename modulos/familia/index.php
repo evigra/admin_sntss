@@ -90,8 +90,14 @@
 	{
 	    $objeto->words["system_module"]             =$objeto->__VIEW_CREATE();
 	    $objeto->words               				=$objeto->__INPUT($objeto->words,$objeto->sys_fields);
+
+		$module_left=array(
+			array("action"=>"Guardar"),
+			array("cancel"=>"Cancelar"),
+		);
 	
 	
+	    /*
 	    
 		# TITULO DEL MODULO
     	$module_title                	=	"Reporte de ";
@@ -103,10 +109,6 @@
 			array("kanban"=>"Kanban"),
 			array("report"=>"Reporte"),
 	    );
-			$module_left=array(
-			array("action"=>"Guardar"),
-			array("cancel"=>"Cancelar"),
-		);
     
 	
 	    # CARGANDO VISTA Y CARGANDO CAMPOS A LA VISTA  
@@ -114,6 +116,7 @@
 		$data										=$objeto->__VIEW_REPORT($option);
 		$objeto->words["module_body"]				=$data["html"];
 		$module_title								="Reporte de ";
+		*/
     }
     
     

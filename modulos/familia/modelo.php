@@ -25,7 +25,7 @@
 			"fecha_nacimiento"	    =>array(
 			    "title"             => "Fecha de Nacimiento",
 			    "type"              => "date",
-			    "attr"              => array("required"),
+			    "attr"              => array("required","placeholder"=>"AAAA-MM-DD"),
 			),			
 			"sexo"	    =>array(
 			    "title"             => "Sexo",
@@ -44,8 +44,7 @@
 			    	""=>"Seleccione una opcion",
 			    	"Hij@",
 			    	"Papa",
-			    	"Mama",
-			    	
+			    	"Mama",			    	
 			    	"Herman@",
 			    ),
 			),			
@@ -58,26 +57,32 @@
 			    "class_field_o"    	=> "files_id",
 			    "class_field_m"    	=> "id",			    
 			),
-			"status"	    =>array(
-			    "title"             => "Activo",
-			    "type"              => "checkbox",
-			),				
 		);				
 		##############################################################################	
 		##  Metodos	
 		##############################################################################
 
-        
+   		public function __SAVE($datas=NULL,$option=NULL)
+    	{    		    		
+            $datas["user_id"]			=$_SESSION["user"]["id"];
+
+  
+      	    $save	= parent::__SAVE($datas,$option);
+    	    
+    	    return $save;
+    	}
+    	##############################################################################
+   		public function __REPORTE($datas=NULL,$option=NULL)
+    	{    		    		
+
+
+  
+      	    $save	= parent::__VIEW_REPORT();    	    
+    	    return $save;
+    	}
 
 		//////////////////////////////////////////////////		
     	//////////////////////////////////////////////////	
-	    /*
-		public function users($option=NULL)		
-    	{	
-			$return =$this->__VIEW_REPORT($option);    				
-			return $return;
-		}
-		*/				
-					
+				
 	}
 ?>

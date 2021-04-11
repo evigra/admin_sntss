@@ -28,7 +28,7 @@
     		{
 			    $datas["company_id"]    	=1;
 			    $datas["status"]    	    =1;
-			    $datas["sesion_start"]    	="../bienvenida/";
+			    $datas["sesion_start"]    	="../bienvenida/&sys_menu=21";
 
                 $datas["usergroup_ids"] = array(
                     "1" => 4,
@@ -68,7 +68,7 @@ http://raulmartinez.solesgps.com/users_registro/
   
   
   		        if($user["sesion_start"]!="")   $locacion	=$user["sesion_start"];
-		        else							$locacion	="../bienvenida/&sys_menu=27";
+		        else							$locacion	="../bienvenida/&sys_menu=21";
 		        
 			        	
 			    $this->__PRINT_JS				=" window.location =\"$locacion\";  ";			

@@ -1,41 +1,34 @@
 <?php
-	require_once("../../../nucleo/sesion.php");
-	require_once("../../../nucleo/general.php");
+	require_once("../../../nucleo/sesion.php");	
+	$option				=array();	
+	$option["name"]		="rh_c";	
+
+
+
 	
-	$objeto				=new general();		
+	$objeto				=new familia($option);	
+	#$objeto->sys_private["section"]=="section_filtro";
+	#$objeto->sys_private["action"]=="section_filtro";
 	
-	$retun=array();
-	$comando_sql        ="
-        select 
-            u.*
-        from 
-            users u 
-        where  1=1
-			AND name LIKE '%{$_GET["term"]}%'
-			AND u.company_id={$_SESSION["company"]["id"]} 
-			#OR u.id={$_SESSION["user"]["id"]}		
-	";	
-	$data =$objeto->__EXECUTE($comando_sql, "DEVICE MODELO");	
-	$data_json=array();
-	if(count($data)>0)
-	{
-		foreach($data as $row)
-		{
-			$data_json[]=array(
-				'label'     => $row["name"],
-				'clave'		=> $row["id"]	
-			);			
-		}
-	}
-	else
-	{
-		if(@$_GET["term"]!="")	$busqueda=@$_GET["term"];
-		else					$busqueda=@$_GET["id"];
-		
-		$data_json[]=array(
-			'label'     => "Sin resultados para ". $busqueda,
-			'clave'		=> ""	
-		);				
-	}		
-	echo json_encode($data_json);
+
+	$option["header"]	=false;
+	$option["actions"]	=false;
+	/*
+	$option["where"]	=array(
+		"trabajador_clave='{$_GET["matricula"]}'",
+		"left(registro,7)=left('{$_GET["fecha"]}',7)",
+	);
+    */		
+	$option["where"]	=array(
+		"user_id='{$_SESSION["user"]["id"]}'",
+	);
+
+
+
+    $option["template_title"]	=$objeto->sys_var["module_path"]."html/ajax/report_title";
+    $option["template_body"]	=$objeto->sys_var["module_path"]."html/ajax/report_body";			
+					
+	$data										= $objeto->__VIEW_REPORT($option);
+	
+	echo $data["html"];
 ?>
