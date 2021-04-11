@@ -18,15 +18,23 @@
 /* ####################################### */
 @media (min-width:1200px)
 {
+    .w11{ width:                  11%;       float:                  left;    }
+    .w22{ width:                  22%;       float:                  left;    }    
+    .w33{ width:                  33%;       float:                  left;    }    
+    .w55{ width:                  55%;       float:                  left;    }    
+    .w66{ width:                  66%;       float:                  left;    }    
+    .w99{ width:                  99%;  }    
+
+
     .cabecera_titulo{
         font-size:              30;
     }    
     div.logo
     {           
-        top:                    45px;        
+        top:                    25px;        
         position:               absolute;  
-        left:                   65px; 
-        width:                  160px;
+        left:                   45px; 
+        width:                  190px;
     }
     .cabecera{
         height:                 230px; 
@@ -49,15 +57,22 @@
 /* ####################################### */
 @media (max-width:1199px) and (min-width:992px)
 {
+    .w11{ width:                  11%;       float:                  left;    }
+    .w22{ width:                  22%;       float:                  left;    }    
+    .w33{ width:                  33%;       float:                  left;    }    
+    .w55{ width:                  55%;       float:                  left;    }    
+    .w66{ width:                  66%;       float:                  left;    }    
+    .w99{ width:                  99%;  }    
+
     .cabecera_titulo{
         font-size:              25;
     }    
     .logo
     {        
         position:               absolute;  
-        top:                    25px;        
-        left:                   60px; 
-        width:                  100px;
+        top:                    20px;        
+        left:                   50px; 
+        width:                  140px;
     }
     .cabecera{
         height:                 170px; 
@@ -92,15 +107,22 @@
 /* ####################################### */
 @media (max-width:991px) and (min-width:768px)
 {
+    .w11{ width:                  11%;       float:                  left;    }
+    .w22{ width:                  22%;       float:                  left;    }    
+    .w33{ width:                  33%;       float:                  left;    }    
+    .w55{ width:                  55%;       float:                  left;    }    
+    .w66{ width:                  66%;       float:                  left;    }    
+    .w99{ width:                  99%;  }    
+
     .cabecera_titulo{
         font-size:              20;
     }    
     .logo
     {        
         position:               absolute;  
-        top:                    25px;        
-        left:                   60px; 
-        width:                  90px;
+        top:                    20px;        
+        left:                   50px; 
+        width:                  120px;
     }
     .cabecera{
         height:                 150px; 
@@ -123,8 +145,15 @@
 /* ####################################### */
 /* ######         MOVILES           ###### */
 /* ####################################### */
-@media (max-width:767px)
+@media (max-width:767px)and (min-width:401px)
 {
+    .w11{ width:                  98%;  }
+    .w22{ width:                  98%;  }    
+    .w33{ width:                  98%;  }    
+    .w55{ width:                  98%;  }    
+    .w66{ width:                  98%;  }    
+    .w99{ width:                  98%;  }    
+
     .foto_logo{
         width:                  270px;
         position:               absolute; 
@@ -137,7 +166,7 @@
         position:               absolute;  
         top:                    10px;        
         left:                   20px; 
-        width:                  50px;
+        width:                  65px;
     }
 
     .cabecera{
@@ -156,6 +185,47 @@
 }
 
 
+/* ####################################### */
+/* ######         MOVILES           ###### */
+/* ####################################### */
+@media (max-width:400px)
+{
+    .w11{ width:                  98%;  }
+    .w22{ width:                  98%;  }    
+    .w33{ width:                  98%;  }    
+    .w55{ width:                  98%;  }    
+    .w66{ width:                  98%;  }    
+    .w99{ width:                  98%;  }    
+
+    .foto_logo{
+        width:                  270px;
+        position:               absolute; 
+        left:                   30px; 
+        top:                    15px;
+
+    }
+    .logo
+    {
+        position:               absolute;  
+        top:                    10px;        
+        left:                   20px; 
+        width:                  90px;
+    }
+
+    .cabecera{
+        height:                 80px; 
+    }
+    .responsive4-1cols
+    {
+        float:              left;
+	    width:				50%;
+    }
+
+    .responsive4-1cols:nth-child(3), .responsive4-1cols:nth-child(4) 
+    {
+        display:                none;
+    }
+}
 
 
 

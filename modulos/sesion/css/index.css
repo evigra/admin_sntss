@@ -25,6 +25,18 @@
 /* ####################################### */
 @media (max-width:1199px) and (min-width:992px)
 {
+    .ingreso{
+        position:absolute; 
+        right:40px; 
+        top:40px; 
+        width:300px;
+    }
+    .localizanos{
+        position:absolute; 
+        left:40px; 
+        top:40px;
+        width:300px;
+    }
 
 }
 
@@ -37,13 +49,13 @@
         position:absolute; 
         right:40px; 
         top:40px; 
-        width:200px;
+        width:300px;
     }
     .localizanos{
         position:absolute; 
         left:40px; 
         top:40px;
-        width:200px;
+        width:300px;
     }
 
 
@@ -54,18 +66,6 @@
 /* ####################################### */
 @media (max-width:767px) and (min-width:401px)
 {
-    .ingreso{
-        position:absolute; 
-        right:40px; 
-        top:40px; 
-        width:250px;
-    }
-    .localizanos{
-        position:absolute; 
-        left:40px; 
-        top:40px;
-        width:250px;
-    }
 
 }
 
@@ -75,15 +75,6 @@
 /* ####################################### */
 @media (max-width:400px)
 {
-    .ingreso{
-        position:absolute; 
-        right:40px; 
-        top:40px; 
-        width:250px;
-    }
-    .localizanos{
-        visibility:             hidden;
-    }
 
 }
 
