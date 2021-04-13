@@ -56,6 +56,7 @@
 			    "class_field_m"    	=> "id",			    
 			),
             */
+            /*            
 			"sesion_start"	    =>array(
 			    "title"             => "Modulo de inicio",
 			    "type"              => "autocomplete",
@@ -65,7 +66,14 @@
 			    "class_field_l"    	=> "name",				# Label
 			    "class_field_o"    	=> "sesion_start",
 			    "class_field_m"    	=> "menu",			    
-			),						
+			),
+			*/
+			"sesion_start"	    =>array(
+			    "title"             => "Modulo de inicio",
+			    "type"              => "input",
+			),
+
+			/*						
 			"company_id"	    =>array(
 			    "title"             => "Compania",
 			    "type"              => "input",
@@ -73,7 +81,14 @@
 			    "class_name"       	=> "company",
 			    "class_field_o"    	=> "company_id",
 			    "class_field_m"    	=> "id",
-			),						
+			),
+			*/
+			"company_id"	    =>array(
+			    "title"             => "Compania",
+			    "type"              => "input",
+			),
+			
+									
 			"usergroup_ids"	    	=>array(
 			    "title"             => "Permisos",
 			    "type"              => "input",
