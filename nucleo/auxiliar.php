@@ -1440,7 +1440,7 @@
 								}	
 								else
 								{					        
-									$words["$campo"]  		="<input id=\"$campo\" $style autocomplete=\"off\" type=\"text\" $attr name=\"{$this->sys_name}_$campo\" value=\"{$valor["value"]}\" class=\"formulario {$this->sys_name} {$this->sys_object} $class\">{$valor["br"]}$titulo";
+									$words["$campo"]  		="<input id=\"$campo\" $style autocomplete=\"off\" type=\"text\" txt=\"{$valor["title"]	}\" $attr name=\"{$this->sys_name}_$campo\" value=\"{$valor["value"]}\" class=\"formulario {$this->sys_name} {$this->sys_object} $class\">{$valor["br"]}$titulo";
 									$words["$campo.md5"]  	="<input id=\"$campo\" $style autocomplete=\"off\" type=\"text\" $attr name=\"{$this->sys_name}_$campo\" value=\"" . md5($valor["value"]) . "\" class=\"formulario {$this->sys_name} {$this->sys_object} $class\">{$valor["br"]}$titulo";
 								}					        										
 							}
@@ -1460,7 +1460,7 @@
 									$words["$campo"]  ="{$valor["value"]}{$valor["br"]}$titulo";
 								else					        
 									$words["$campo"]  ="
-										<input id=\"$campo\" $style type=\"text\" name=\"{$this->sys_name}_$campo\" $attr value=\"{$valor["value"]}\" class=\"formulario {$this->sys_name} $class\">{$valor["br"]}$titulo
+										<input id=\"$campo\" $style type=\"text\" name=\"{$this->sys_name}_$campo\" $attr  txt=\"{$valor["title"]	}\" value=\"{$valor["value"]}\" class=\"formulario {$this->sys_name} $class\">{$valor["br"]}$titulo
 										<script>
 											$(\"input#$campo".".{$this->sys_name}\").datepicker({
 												dateFormat:\"yy-mm-dd\",
@@ -1484,7 +1484,7 @@
 									$words["$campo"]  ="{$valor["value"]}{$valor["br"]}$titulo";
 								else					        
 							    $words["$campo"]  ="
-							    	<input id=\"$campo\" $style type=\"text\" name=\"{$this->sys_name}_$campo\" $attr value=\"{$valor["value"]}\" class=\"formulario {$this->sys_name} $class\">{$valor["br"]}$titulo
+							    	<input id=\"$campo\" $style type=\"text\" name=\"{$this->sys_name}_$campo\" $attr  txt=\"{$valor["title"]	}\" value=\"{$valor["value"]}\" class=\"formulario {$this->sys_name} $class\">{$valor["br"]}$titulo
 					    			<script>
 										$(\"input#$campo".".{$this->sys_name}\").datetimepicker({
 											dateFormat: 	\"yy-mm-dd\",
@@ -1529,7 +1529,7 @@
 									$words["$campo"]  ="{$valor["value"]}{$valor["br"]}$titulo";
 								else							
 							    $words["$campo"]  ="
-							    	<input id=\"$campo\" $style type=\"text\" name=\"{$this->sys_name}_$campo\"  $attr class=\"formulario {$this->sys_name} $class\">{$valor["br"]}$titulo
+							    	<input id=\"$campo\" $style type=\"text\" name=\"{$this->sys_name}_$campo\"  $attr  txt=\"{$valor["title"]	}\" class=\"formulario {$this->sys_name} $class\">{$valor["br"]}$titulo
 					    			<script>
 										$(\"input#$campo".".{$this->sys_name}\").multiDatesPicker(
 										{
@@ -1550,7 +1550,7 @@
 							
 					    	$words["$campo"]  = 
 					        "<div class=\"checkbox-2\">
-		    					<input type=\"checkbox\" id=\"{$this->sys_name}_$campo\"  $checked value=\"1\" name=\"{$this->sys_name}_$campo\" />
+		    					<input type=\"checkbox\" id=\"{$this->sys_name}_$campo\"  $checked value=\"1\"  txt=\"{$valor["title"]	}\" name=\"{$this->sys_name}_$campo\" />
 		    					<label for=\"{$this->sys_name}_$campo\">".""."</label>
 							</div>$titulo
 							{$valor["br"]}
@@ -1596,7 +1596,7 @@
 
 
 
-					        $words["$campo"]  ="<input id=\"$campo\" $attr name=\"{$this->sys_name}_$campo\" type=\"file\" class=\"formulario {$this->sys_name} $class\" >{$valor["br"]}$titulo";
+					        $words["$campo"]  ="<input id=\"$campo\" $attr name=\"{$this->sys_name}_$campo\" type=\"file\"  txt=\"{$valor["title"]	}\" class=\"formulario {$this->sys_name} $class\" >{$valor["br"]}$titulo";
 					        $agua="";
 					        $facebook="";
 					        if(in_array(@$valor["agua"],$_SESSION["var"]["true"]))
@@ -1632,7 +1632,7 @@
                                         $agua
                                         $facebook
                                         <td>
-                                            <input id=\"$campo\" $attr name=\"{$this->sys_name}_$campo\" type=\"file\" class=\"formulario {$this->sys_name} $class\" >{$valor["br"]}$titulo
+                                            <input id=\"$campo\" $attr name=\"{$this->sys_name}_$campo\" type=\"file\"  txt=\"{$valor["title"]	}\" class=\"formulario {$this->sys_name} $class\" >{$valor["br"]}$titulo
                                         </td>
                                     </tr>
                                 </table>
@@ -1688,7 +1688,7 @@
 					    	if(@$this->sys_private["section"]=="show")
 					    		$words["$campo"]  ="{$valor["value"]}{$valor["br"]}$titulo";
 					    	else							
-						        $words["$campo"]  ="<textarea id=\"$campo\" name=\"{$this->sys_name}_$campo\" $attr class=\"formulario {$this->sys_name} $class\">{$valor["value"]}</textarea>{$valor["br"]}$titulo";
+						        $words["$campo"]  ="<textarea id=\"$campo\" name=\"{$this->sys_name}_$campo\" $attr  txt=\"{$valor["title"]	}\" class=\"formulario {$this->sys_name} $class\">{$valor["value"]}</textarea>{$valor["br"]}$titulo";
 					    } 
 					    ################################			           
 					    if($valor["type"]=="html")	
@@ -1701,7 +1701,7 @@
 					    	if(@$this->sys_private["section"]=="show")
 					    		$words["$campo"]  ="*********{$valor["br"]}$titulo";					    							    	    
 					    	else					    
-					        $words["$campo"]  ="<input type=\"password\" $style id=\"$campo\" $attr name=\"{$this->sys_name}_$campo\" value=\"{$valor["value"]}\" class=\"formulario {$this->sys_name} $class\">{$valor["br"]}$titulo";
+					        $words["$campo"]  ="<input type=\"password\" $style id=\"$campo\" $attr name=\"{$this->sys_name}_$campo\"  txt=\"{$valor["title"]	}\" value=\"{$valor["value"]}\" class=\"formulario {$this->sys_name} $class\">{$valor["br"]}$titulo";
 					    }    
 					    ################################
 					    if($valor["type"]=="flow")	
@@ -1747,7 +1747,7 @@
 								if(@$this->sys_private["section"]=="show")
 									$words["$campo"]  ="{$valor["value"]}{$valor["br"]}$titulo";
 								else							    			            
-									$words["$campo"]  ="<select id=\"$campo\" $style name=\"{$this->sys_name}_$campo\"  $attr class=\"formulario {$this->sys_name} $class\">
+									$words["$campo"]  ="<select id=\"$campo\" $style name=\"{$this->sys_name}_$campo\"   txt=\"{$valor["title"]	}\" $attr class=\"formulario {$this->sys_name} $class\">
 											$options
 										</select>{$valor["br"]}$titulo
 									";
@@ -1884,7 +1884,7 @@
 									$words["$campo"]  ="{$label}{$valor["br"]}$titulo";
 								else								
 									$words["$campo"]  ="
-										<input id=\"auto_$campo\"  name=\"{$this->sys_name}_auto_$campo\" $style type=\"text\"   $attr value=\"$label\" class=\"formulario {$this->sys_name} $class\">{$valor["br"]}$titulo
+										<input id=\"auto_$campo\"  name=\"{$this->sys_name}_auto_$campo\" $style type=\"text\"   txt=\"{$valor["title"]	}\"  $attr value=\"$label\" class=\"formulario {$this->sys_name} $class\">{$valor["br"]}$titulo
 										<input id=\"$campo\" 	   name=\"{$this->sys_name}_$campo\" value=\"{$valor["value"]}\"  class=\"formulario {$this->sys_name}\" type=\"hidden\">
 										<div id=\"auto_$campo\" title=\"Crear Registro\">{create_auto_$campo}</div>
 									" . $this->__JS_SET($js);
