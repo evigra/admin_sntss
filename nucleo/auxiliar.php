@@ -2308,10 +2308,6 @@
 						    {
 						        $data_file                  =$this->sys_fields[$field]["values"][0];						
 						        
-						        
-						        
-						        
-						        
 						        if(in_array(strtolower($data_file["extension"]),array("pdf")))
 						        {
 						            
@@ -2337,6 +2333,19 @@
 						        }    
 						        
 						        
+						    }
+						    else
+						    {
+					            $path_pdf="../sitio_web/img/delete.png";
+					            $words[$campo."._thumb"]      ="<img src=\"$path_pdf\">";
+
+					            $row[$field."._path"]       ="#";
+					            $row[$field."._thumb"]      ="<img src=\"{$path_pdf}\">";
+					            $row[$field."._small"]      ="<img src=\"{$path_pdf}\">";
+					            $row[$field."._medium"]     ="<img src=\"{$path_pdf}\">";
+					            $row[$field."._big"]        ="<img src=\"{$path_pdf}\">";
+					            $row[$field.".original"]    ="<img src=\"{$path_pdf}\">";
+						    
 						    }
 						}
 						
