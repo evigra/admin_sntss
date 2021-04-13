@@ -45,6 +45,7 @@
 			    "class_name"       	=> "files",
 			    "class_field_o"    	=> "files_id_tarjeton",
 			    "class_field_m"    	=> "id",			    
+			    "attr"              => array("required"),
 			),
 			/*
 			"files_id_foto"	    =>array(
