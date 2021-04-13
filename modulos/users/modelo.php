@@ -20,13 +20,13 @@
 			    "title"             => "Mail",
 			    "title_filter"      => "Mail",
 			    "type"              => "input",
-			    "attr"              => array("required"),
+			    "attr"              => array("required","placeholder"=>"Tu matricula de trabajador IMSS"),
 			),
 			"mail"	    =>array(
 			    "title"             => "Mail",
 			    "title_filter"      => "Mail",
 			    "type"              => "input",
-			    "attr"              => array("required"),
+			    "attr"              => array("required","placeholder"=>"tucorreo@servidor.com"),
 			),
 
 			"password"	    =>array(
@@ -37,11 +37,13 @@
 			"celular"	    =>array(
 			    "title"             => "Celular",
 			    "type"              => "input",
+			    "attr"              => array("placeholder"=>"3143520972"),
 			),			
 			"files_id_tarjeton"	    =>array(
 			    "title"             => "Tarjeton",
 			    "type"              => "file",
 			    "relation"          => "many2one",
+			    "attr"              => array("placeholder"=>"ARCHIVOS PFD JPG PNG JPEG"),
 			    "class_name"       	=> "files",
 			    "class_field_o"    	=> "files_id_tarjeton",
 			    "class_field_m"    	=> "id",			    
@@ -289,6 +291,78 @@
 
             $return = parent::__BROWSE($option);
     		return $return;
-		}				
+		}	
+		
+   		public function __REPORT_PENDIENTE()    // PASO 1
+    	{
+			$option				=array();			
+			$option["where"]	=array();
+			$option["color"]	=array();
+			
+			#$option["where"]=array("estatus =''");
+			
+			#$option["where"][]				="f_p_recibio is NULL";				
+			
+			
+			#$option["color"]["purple"]		="date('Y-m-d', strtotime($"."row[\"f_elaboro\"]. ' + 5 days')) < date('Y-m-d')";
+			#$option["color"]["blue"]		="date('Y-m-d', strtotime($"."row[\"f_elaboro\"]. ' + 3 days')) < date('Y-m-d')";
+			#$option["color"]["black"]		="1==1";
+			
+			
+			if($this->__NIVEL_SESION("==90")==true)	 // NIVEL USUARIO SINDICATO 			
+			{					
+				$option["where"][]				="1=1 OR estatus='Devuelta por Adscripcion'";
+			
+				$option["actions"]["write"]		="$"."row[\"f_p_recibio\"]==''";	
+				$this->words["module_title"]	="";
+								
+			}
+				
+			if($this->__NIVEL_SESION("==70")==true)	 // NIVEL USUARIO ADSCRIPCION 
+			{			
+				$option["actions"]["write"]		="$"."row[\"f_p_recibio\"]!=''";	
+				$option["actions"]["check"]		="$"."row[\"f_p_recibio\"] == ''";	
+				
+				$this->words["module_title"]	="Reporte de Solicitudes de Reclamaciones Pendientes por Recibir";
+			}
+			if($this->__NIVEL_SESION("==0")==true)	 // NIVEL EDUARDO
+			{			
+				$option["actions"]["write"]		="1==1";	
+				$option["actions"]["check"]		="1==1";	
+				
+				$this->words["module_title"]	="Reporte de Solicitudes de Reclamaciones Pendientes por Recibir";
+			}
+			if($this->__NIVEL_SESION(">=40")==true)	 // NIVEL EDUARDO
+			{			
+				$option["where"][]				="company_id='{$_SESSION["company"]["id"]}'";				
+			}			
+			
+
+			return $this->__REPORTE($option);
+		}	
+   		public function __REPORTE($option="")
+    	{			
+			if($option=="")	$option=array();
+		
+			if(!isset($option["actions"]))				$option["actions"]							= array();
+			if(!isset($option["color"]))				$option["color"]							= array();
+			if(!isset($option["where"]))				$option["where"]							= array();
+			
+			
+			if(!isset($option["actions"]["check"]))
+				$option["actions"]["check"]					="false";
+			if(!isset($option["actions"]["write"]))
+				$option["actions"]["write"]					="false";
+
+			$option["actions"]["show"]					="$"."row[\"estatus\"]!='CANCELADO'";			
+			$option["actions"]["delete"]				="false";
+
+
+			if(isset($this->sys_private["order"]) AND $this->sys_private["order"]=="")
+				$option["order"]="id desc";
+			
+			return $this->__VIEW_REPORT($option);
+		}						
+					
 	}
 ?>
