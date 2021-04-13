@@ -2312,7 +2312,7 @@
 						        {
 						            
 						            $path_pdf="../sitio_web/img/pdf2.png";
-						            $words[$campo."._thumb"]      ="<img src=\"$path_pdf\">";
+						            $words[$field."._thumb"]      ="<img src=\"$path_pdf\">";
 
 						            $row[$field."._path"]       ="../modulos/files/file/{$data_file["id"]}.{$data_file["extension"]}";
 						            $row[$field."._thumb"]      ="<img src=\"{$path_pdf}\">";
