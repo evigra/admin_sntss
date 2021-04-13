@@ -563,7 +563,7 @@
                         from 
 	                        users u 
                             JOIN user_group ug ON u.id=ug.user_id     
-                            JOIN perfil g ON g.id=ug.perfil AND g.name!='No disponible' 
+                            JOIN groups g ON g.id=ug.perfil AND g.name!='No disponible' 
 	                        JOIN menu m ON m.id=g.menu_id OR g.menu_id =0 AND ug.menu_id=m.id
 		                WHERE 1=1
 			                AND ug.perfil!=0
@@ -594,21 +594,13 @@
 				    $option_html                ="";
 				    foreach($datas_menu as $data_menu)
 				    {
-				        $link			=$data_menu["link"];
-				        if($data_menu["adjuntar_menu"]!=1)	
-				        {			    				        	
-					        $link	.="&sys_menu=".$data_menu["id"] . $data_menu["variables"];								
-					    }			
-					    else
-					    {
-					    	$open_link		="target=\"_blank\"";   
-					    }		    
+				        $link								=$data_menu["link"]."&sys_menu=".$data_menu["id"] . $data_menu["variables"];				
 					    if($_SESSION["var"]["menu"]==$data_menu["id"])
 
 						    $menu_principal=$data_menu["name"];
 					    
 					    @$option_html	.="
-						    <li><a href=\"{$link}\" $open_link >{$data_menu["name"]}</a></li>
+						    <li><a href=\"{$link}\">{$data_menu["name"]}</a></li>
 					    ";
 				    }
 				    if(count($datas_menu)>1)
@@ -647,7 +639,7 @@
 		                    from 
 			                    users u JOIN 
 			                    user_group ug ON u.id=ug.user_id JOIN
-			                    perfil g ON g.id=ug.perfil JOIN
+			                    groups g ON g.id=ug.perfil JOIN
 			                    permiso p ON p.usergroup_id=ug.perfil AND p.s=1 JOIN
 			                    menu m ON m.id=p.menu_id 
 		                    WHERE  1=1
@@ -688,7 +680,7 @@
 				            from 
 					            users u JOIN 
 					            user_group ug ON u.id=ug.user_id JOIN
-					            perfil g ON g.id=ug.perfil JOIN
+					            groups g ON g.id=ug.perfil JOIN
 					            permiso p ON p.usergroup_id=ug.perfil JOIN
 					            menu m ON m.id=p.menu_id 
 				            where  1=1
@@ -703,42 +695,22 @@
 					    $option_html	="";
 					    foreach($datas_opcion as $data_opcion)
 					    {
-					    	$open_link		="";
-						    $link			=$data_opcion["link"];						    
-						    if($data_opcion["adjuntar_menu"]!=1)				       
-						    {
-							    $link		.="&sys_menu={$sys_menu}" . $data_opcion["variables"];
-						    }
-							else
-							{
-								$open_link		="target=\"_blank\"";   
-							}		    
-						    
+
+						    $link			=$data_opcion["link"]."&sys_menu={$sys_menu}" . $data_opcion["variables"];
 						    $option_html	.="
-							    <li><a href=\"{$link}\" $open_link >{$data_opcion["name"]}</a></li>
+							    <li><a href=\"{$link}\">{$data_opcion["name"]}</a></li>
 						    ";
 					    }	
 					    
-					    $open_link		="";
 					    
 					    if($menu_web==0)    $link="#";					    
-					    else                
-					    {					    	
-						    $link			=$data_submenu["link"];
+					    else                $link			=$data_submenu["link"]."&sys_menu={$sys_menu}" . $data_submenu["variables"];
 					    
-						    if($data_submenu["adjuntar_menu"]!=1)				       
-						    {
-							    $link			="&sys_menu={$sys_menu}" . $data_submenu["variables"];
-					    	}
-							else
-							{
-								$open_link		="target=\"_blank\"";   
-							}		    					    	
-					    }
+					    
 					    
 					    
 					    $submenu_html	.="
-						    <li><a href=\"$link\" $open_link ><b>{$data_submenu["name"]}</b></a>
+						    <li><a href=\"$link\"><b>{$data_submenu["name"]}</b></a>
 							    <ul class=\"submenu\">
 								    $option_html
 							    </ul>
