@@ -17,6 +17,14 @@
     $module_right	="";
         
     $module_title	="";
+
+	# PRECARGANDO LOS BOTONES PARA LA VISTA SELECCIONADA
+	$module_right=array(
+		array("create"=>"Crear"),
+		#array("write"=>"Modificar"),
+		array("kanban"=>"Kanban"),
+		array("report"=>"Reporte"),
+    );
 	
     if($objeto->sys_private["section"]=="create")
 	{
@@ -27,12 +35,6 @@
 		$module_left=array(
 			array("action"=>"Guardar"),
 			array("cancel"=>"Cancelar"),
-		);
-		$module_right=array(
-			#array("create"=>"Crear"),
-			#array("write"=>"Modificar"),
-			array("kanban"=>"Kanban"),
-			array("report"=>"Reporte"),
 		);
 
 		# CARGANDO VISTA Y CARGANDO CAMPOS A LA VISTA
@@ -53,12 +55,6 @@
 			array("action"=>"Guardar"),
 			array("cancel"=>"Cancelar"),
 		);
-		$module_right=array(
-			#array("create"=>"Crear"),
-			#array("write"=>"Modificar"),
-			array("kanban"=>"Kanban"),
-			array("report"=>"Reporte"),
-		);
 
 		# CARGANDO VISTA Y CARGANDO CAMPOS A LA VISTA
 		$objeto->words["module_body"]				=$objeto->__VIEW_WRITE();	 
@@ -78,13 +74,6 @@
 			array("action"=>"Guardar"),
 			array("cancel"=>"Cancelar"),
 		);
-		$module_right=array(
-			#array("create"=>"Crear"),
-			#array("write"=>"Modificar"),
-			array("kanban"=>"Kanban"),
-			array("report"=>"Reporte"),
-		);
-
 		# CARGANDO VISTA Y CARGANDO CAMPOS A LA VISTA
 		$objeto->words["module_body"]				=$objeto->__VIEW_WRITE();	 
 		$objeto->words               				=$objeto->__INPUT($objeto->words,$objeto->sys_fields);    
@@ -103,14 +92,6 @@
 		# TITULO DEL MODULO
     	$module_title                	=	"Reporte Modular de ";
 
-		# PRECARGANDO LOS BOTONES PARA LA VISTA SELECCIONADA
-    	$module_right=array(
-			array("create"=>"Crear"),
-			#array("write"=>"Modificar"),
-			#array("kanban"=>"Kanban"),
-			array("report"=>"Reporte"),
-	    );
-
 		# CARGANDO VISTA Y CARGANDO CAMPOS A LA VISTA
     	$option										=array();
 		$data										=$objeto->__VIEW_KANBAN($option);		
@@ -121,14 +102,6 @@
 		# TITULO DEL MODULO
     	$module_title                	=	"Reporte de ";
 
-		# PRECARGANDO LOS BOTONES PARA LA VISTA SELECCIONADA
-    	$module_right=array(
-			array("create"=>"Crear"),
-			#array("write"=>"Modificar"),
-			array("kanban"=>"Kanban"),
-			#array("report"=>"Reporte"),
-	    );
-	    
 	    # CARGANDO VISTA Y CARGANDO CAMPOS A LA VISTA  
 		$option     								=	array();		
 		$data										=$objeto->__VIEW_REPORT($option);
