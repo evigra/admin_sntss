@@ -55,7 +55,8 @@
 			    "relation"          => "many2one",
 			    "class_name"       	=> "files",
 			    "class_field_o"    	=> "files_id_acta",
-			    "class_field_m"    	=> "id",			    
+			    "class_field_m"    	=> "id",			 
+			    "attr"              => array("required"),   
 			),
 			/*
 			"files_id_foto"	    =>array(

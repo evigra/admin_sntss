@@ -3953,16 +3953,22 @@
 										enviar	=true;		
 									}								
 									if($(\"[class*='required'][class*='{$this->sys_name}']\").length>0)
-									{				
+									{		
+										var mensaje=\"\";		
 										$(\"[class*='required'][class*='{$this->sys_name}']\").each(function(){
 											if(   $(this).val()==\"\"   )
 											{
+
+												var txt	=\" > \" + $(this).attr(\"txt\");
+												mensaje	+=\"<br>\"+txt;
 												enviar=false;	
 											}										
 										});	
-										var form=\"Favor de verificar los campos faltantes</font>\";								
+										var form=\"Favor de verificar los campos faltantes</font><br>\"+mensaje;								
 									}
 								}
+
+
 								
 								if(enviar==true)	$(\"form\").submit();
 								else 
