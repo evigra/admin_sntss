@@ -2340,8 +2340,8 @@
 					            $words[$campo."._thumb"]      ="<img src=\"$path_pdf\">";
 
 					            $row[$field."._path"]       ="#";
-					            $row[$field."._thumb"]      ="<img src=\"{$path_pdf}\">";
-					            $row[$field."._small"]      ="<img src=\"{$path_pdf}\">";
+					            $row[$field."._thumb"]      ="<img src=\"{$path_pdf}\" width=\"25\">";
+					            $row[$field."._small"]      ="<img src=\"{$path_pdf}\" width=\"25\">";
 					            $row[$field."._medium"]     ="<img src=\"{$path_pdf}\">";
 					            $row[$field."._big"]        ="<img src=\"{$path_pdf}\">";
 					            $row[$field.".original"]    ="<img src=\"{$path_pdf}\">";
