@@ -2337,7 +2337,7 @@
 						    else
 						    {
 					            $path_pdf="../sitio_web/img/delete.png";
-					            $words[$campo."._thumb"]      ="<img src=\"$path_pdf\">";
+					            $words[$field."._thumb"]      ="<img src=\"$path_pdf\">";
 
 					            $row[$field."._path"]       ="#";
 					            $row[$field."._thumb"]      ="<img src=\"{$path_pdf}\" width=\"25\">";
