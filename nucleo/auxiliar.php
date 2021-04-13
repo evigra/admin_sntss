@@ -1566,9 +1566,12 @@
 						        $data_file                  =$this->sys_fields[$campo]["values"][0];						
 						        
 						        $words[$campo."._path"]       ="../modulos/files/file/{$data_file["id"]}.{$data_file["extension"]}";
+						        
+						        $this->__PRINT_R($data_file["extension"]);
+						        
 						        if(in_array(strtolower($data_file["extension"]),array("pdf")))
 						        {
-						            $this->__PRINT_R($data_file["extension"]);
+						            
 						            $path_pdf="../sitio_web/img/pdf2.png";
 						            $words[$campo."._thumb"]      ="<img src=\"$path_pdf\">";
 						            $words[$campo."._small"]      ="<img src=\"$path_pdf\">";
