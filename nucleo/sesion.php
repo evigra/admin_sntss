@@ -74,7 +74,7 @@
             $_SESSION["var"]["server"]          =array("localhost");
 		#print_r($_GET);	
 
-		#if(@$_GET["sys_action"]=="cerrar_sesion")
+		if(@$_GET["sys_action"]=="cerrar_sesion")
 		{
 			$_SESSION["var"]["action"]="cerrar_sesion";
 			
