@@ -304,7 +304,7 @@
     	    $this->__ACCION_VALIDAR();
 			$option				=array();			
 			$option["where"]	=array();			
-			$option["where"][]				="validar !=''";				
+			$option["where"][]				="validar =1";				
 			
 			return $this->__REPORTE($option);
 		}	
@@ -326,6 +326,8 @@
     	{
 			if(isset($this->request["users"]))
 			{
+			    $this->__PRINT($this->request["users"]);
+			    
 				foreach($this->request["users"] as $id)
 				{
 					$data=$this->__BROWSE($id);															
@@ -352,7 +354,7 @@
 				$option["actions"]["write"]					="false";
 
 
-			$option["actions"]["show"]					="$"."row[\"estatus\"]!='CANCELADO'";			
+			#$option["actions"]["show"]					="$"."row[\"estatus\"]!='CANCELADO'";			
 			$option["actions"]["show"]					="false";			
 			$option["actions"]["delete"]				="false";
 
