@@ -3972,7 +3972,11 @@
 
 
 								
-								if(enviar==true)	$(\"form\").submit();
+								if(enviar==true)	
+								{
+									$(\"form\").submit();
+									$(\"$font_id\").button(\"option\",\"disabled\", true );	
+								}	
 								else 
 								{
 									$(\"#message\")
