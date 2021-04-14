@@ -291,6 +291,42 @@
             $return = parent::__BROWSE($option);
     		return $return;
 		}	
+   		public function __REPORT_PENDIENTE()    // PASO 1
+    	{
+			$option				=array();			
+			$option["where"]	=array();			
+			$option["where"][]				="validar is NULL";				
+			
+			return $this->__REPORTE($option);
+		}	
+   		public function __REPORTE($option="")
+    	{			
+			if($option=="")	$option=array();
+		
+			if(!isset($option["actions"]))				$option["actions"]							= array();
+			if(!isset($option["color"]))				$option["color"]							= array();
+			if(!isset($option["where"]))				$option["where"]							= array();
+						
+			if(!isset($option["actions"]["check"]))
+				$option["actions"]["check"]					="false";
+			if(!isset($option["actions"]["write"]))
+				$option["actions"]["write"]					="false";
+
+
+			$option["actions"]["show"]					="$"."row[\"estatus\"]!='CANCELADO'";			
+			$option["actions"]["show"]					="false";			
+			$option["actions"]["delete"]				="false";
+
+
+			if($this->__NIVEL_SESION("==0")==true)	 // NIVEL EDUARDO
+			{			
+				$option["actions"]["write"]		="1==1";	
+				$option["actions"]["check"]		="1==1";									
+				$option["actions"]["delete"]	="1==1";
+			}						
+			return $this->__VIEW_REPORT($option);
+		}						
+		
 					
 	}
 ?>

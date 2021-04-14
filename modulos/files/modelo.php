@@ -96,9 +96,7 @@
 
 				    if(in_array($extension,array("jpg","jpeg","png","gif")))		
 				    {
-				        $this->thumbs($path, $datas);
-				        
-				        
+				        $this->thumbs($path, $datas);				       				        
 				    }
 				}
 			}	

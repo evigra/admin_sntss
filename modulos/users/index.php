@@ -97,6 +97,14 @@
 		$data										=$objeto->__VIEW_KANBAN($option);		
 		$objeto->words["module_body"]				=$data["html"];
     }        
+    elseif($objeto->sys_private["section"]=="section_pendiente")
+    {    		
+		#CARGANDO VISTA PARTICULAR Y CAMPOS			
+		$data										= $objeto->__REPORT_PENDIENTE();
+		$objeto->words["module_body"]				=$data["html"];
+		$module_title								="Reporte de Pendientes de ";
+    }
+
 	else
 	{
 		# TITULO DEL MODULO
@@ -108,7 +116,16 @@
 		$objeto->words["module_body"]				=$data["html"];
 		$module_title								="Reporte de ";
     }
-    
+  
+	if(!($objeto->sys_private["section"]=="create" OR $objeto->sys_private["section"]=="show"))
+	{
+		if(!($objeto->sys_private["section"]=="write"))
+		{
+			$module_center[]=array("section_pendiente"		=>"Por Recibir",			"icon"=>"ui-icon-arrowthick-1-s");
+		}
+		$module_center[]=array("section_calculo"		=>"Reclamacion Generada",		"icon"=>"ui-icon-check" );
+		$module_center[]=array("section_rechazo"		=>"Devolver",	"icon"=>"ui-icon-arrowreturnthick-1-w");
+	}    
     
 	$objeto->words["module_title"]              ="$module_title Usuarios";
 	
