@@ -1094,12 +1094,13 @@
 					$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n".$headers;				
 					$message = @$option["html"]; 			
 			}
+			/*
 			if(in_array($_SERVER["SERVER_NAME"],$_SESSION["var"]["server_true"]))	
 			{
 				$boSend =  @mail($option["to"], $option["title"], $message, $headers);
 			}	
 			else
-
+            */
 			{				    
 			    $message.= "<b>ENVIADO DESDE LA SECCION DE PRUEBA</b>"; 			
 				$boSend =  @mail("evigra@gmail.com", $option["title"], $message, $headers);
