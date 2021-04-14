@@ -315,19 +315,13 @@
 			{
 				foreach($this->request["users"] as $id)
 				{
-
-				    $datas= parent::__BROWSE($id);
-					#$data=$this->__BROWSE($id);															
-					$this->__PRINT_R($data);
-					
+				    $datas= parent::__BROWSE($id);																				
 					$data_recibido					=$datas["data"][0];
 
 					$data_recibido["validar"]			=1;					
 					$this->__SAVE($data_recibido);				
-
 				}
-			} 
-			   	
+			} 			   	
 		}	
 		###################################################################
    		public function __REPORT_NOVALIDO()    // PASO 1
@@ -344,17 +338,15 @@
     	{
 			if(isset($this->request["users"]))
 			{
-			    $this->__PRINT($this->request["users"]);
-			    
 				foreach($this->request["users"] as $id)
 				{
-					$data=$this->__BROWSE($id);															
-					$data_recibido					=array();
+				    $datas= parent::__BROWSE($id);																				
+					$data_recibido					=$datas["data"][0];
 
 					$data_recibido["validar"]			=0;					
 					$this->__SAVE($data_recibido);				
-				}			
-			}    	
+				}
+			} 			   	
 		}	
 		
 
