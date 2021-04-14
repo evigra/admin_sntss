@@ -9,7 +9,7 @@
 	
 	if(!isset($_SESSION))		$_SESSION=array();
 	
-	print_r($_SESSION);
+	#print_r($_SESSION);
 	
 	if(isset($_SESSION))
 	{
