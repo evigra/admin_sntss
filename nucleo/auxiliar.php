@@ -48,7 +48,7 @@
 		
 		public function __SESSION()
 		{  
-			$redireccionar= "<script>window.location=\"../webHome/\";</script>";
+			$redireccionar= "<script>window.location=\"../sesion/\";</script>";
 			if(is_array($_SESSION) AND isset($_SESSION["user"]) AND is_array($_SESSION["user"]) AND isset($_SESSION["user"]["id"]) AND $_SESSION["user"]["id"]>0)
 			{
 				$redireccionar= "";					
@@ -1565,13 +1565,14 @@
 						    {
 						        $data_file                  =$this->sys_fields[$campo]["values"][0];						
 						        
-						        $words[$campo."._path"]       ="../modulos/files/file/{$data_file["id"]}.{$data_file["extension"]}";
+						        $path_pdf="../modulos/files/file/{$data_file["id"]}.";
 						        
-						        $this->__PRINT_R($data_file["extension"]);
+						        $words[$campo."._path"]       ="{$path_pdf}.{$data_file["extension"]}";
+						        
+						        #$this->__PRINT_R($data_file["extension"]);
 						        
 						        if(in_array(strtolower($data_file["extension"]),array("pdf")))
-						        {
-						            
+						        {						            
 						            $path_pdf="../sitio_web/img/pdf2.png";
 						            $words[$campo."._thumb"]      ="<img src=\"$path_pdf\">";
 						            $words[$campo."._small"]      ="<img src=\"$path_pdf\">";
@@ -1582,11 +1583,12 @@
 						        }
 						        else
 						        {
-						            $words[$campo."._thumb"]      ="<img src=\"{$row[$field."._path"]}_thumb.jpg\">";
-						            $words[$campo."._small"]      ="<img src=\"{$row[$field."._path"]}_small.jpg\">";
-						            $words[$campo."._medium"]     ="<img src=\"{$row[$field."._path"]}_medium.jpg\">";
-						            $words[$campo."._big"]        ="<img src=\"{$row[$field."._path"]}_big.jpg\">";
-						            $words[$campo.".original"]    ="<img src=\"{$row[$field."._path"]}\">";
+						            
+						            $words[$campo."._thumb"]      ="<img src=\"{$path_pdf}_thumb.jpg\">";
+						            $words[$campo."._small"]      ="<img src=\"{$path_pdf}_small.jpg\">";
+						            $words[$campo."._medium"]     ="<img src=\"{$path_pdf}_medium.jpg\">";
+						            $words[$campo."._big"]        ="<img src=\"{$path_pdf}_big.jpg\">";
+						            $words[$campo.".original"]    ="<img src=\"{$path_pdf}\">";
 						        }    
 						    }
 
@@ -1884,7 +1886,7 @@
 									$words["$campo"]  ="{$label}{$valor["br"]}$titulo";
 								else								
 									$words["$campo"]  ="
-										<input id=\"auto_$campo\"  name=\"{$this->sys_name}_auto_$campo\" $style type=\"text\"   $attr value=\"$label\" class=\"formulario {$this->sys_name} $class\">{$valor["br"]}$titulo
+										<input id=\"auto_$campo\"  name=\"{$this->sys_name}_auto_$campo\" $style type=\"text\"   txt=\"{$valor["title"]	}\"  $attr value=\"$label\" class=\"formulario {$this->sys_name} $class\">{$valor["br"]}$titulo
 										<input id=\"$campo\" 	   name=\"{$this->sys_name}_$campo\" value=\"{$valor["value"]}\"  class=\"formulario {$this->sys_name}\" type=\"hidden\">
 										<div id=\"auto_$campo\" title=\"Crear Registro\">{create_auto_$campo}</div>
 									" . $this->__JS_SET($js);
@@ -2312,7 +2314,7 @@
 						        {
 						            
 						            $path_pdf="../sitio_web/img/pdf2.png";
-						            $words[$campo."._thumb"]      ="<img src=\"$path_pdf\">";
+						            $words[$field."._thumb"]      ="<img src=\"$path_pdf\">";
 
 						            $row[$field."._path"]       ="../modulos/files/file/{$data_file["id"]}.{$data_file["extension"]}";
 						            $row[$field."._thumb"]      ="<img src=\"{$path_pdf}\">";
@@ -2337,7 +2339,7 @@
 						    else
 						    {
 					            $path_pdf="../sitio_web/img/delete.png";
-					            $words[$campo."._thumb"]      ="<img src=\"$path_pdf\">";
+					            $words[$field."._thumb"]      ="<img src=\"$path_pdf\">";
 
 					            $row[$field."._path"]       ="#";
 					            $row[$field."._thumb"]      ="<img src=\"{$path_pdf}\" width=\"25\">";
@@ -3836,13 +3838,16 @@
 			    	$action		=0;
 			    	$titulo		="";
 					$sys_input	="";
+					$text	="";
+
+
 					
 					if(isset($data["icon"]))		$icon	=$data["icon"];
 					if(isset($data["text"]))		$text	=$data["text"];
 					if(isset($data["title"]))		$title	=$data["title"];
 										
 			        foreach($data as $etiqueta =>$valor)
-			        {					  
+			        {					       
 			        	if(in_array($etiqueta,array("icon","text","title")))					       
 			        	{
 			        		unset($data["$etiqueta"]);
@@ -3864,19 +3869,19 @@
 			        		
 		        			if(in_array($etiqueta,array("create","write","report","kanban","graph")))	
 		        			{	##### ICONO #################
-		        				$text	="false";
+		        				if($text=="")				$text	="false";
 		        				$action	="1";
 		        				$name	="$etiqueta";
 		        			}
 		        			elseif(in_array(substr($etiqueta,0,5),array("creat","write","repor","kanba","actio","graph")))	
 		        			{	##### TEXTO #################
-		        				$text	="true";
+			        			if($text=="")				$text	="true";
 		        				$action	="1";
 		        				$name	="$etiqueta";
 		        			}
 		        			else
 		        			{
-		        				$text	="true";
+		        				if($text=="")				$text	="true";
 		        				$name	="$etiqueta";
 		        			}			        			
 
@@ -3894,12 +3899,21 @@
 							if($titulo=="")	$titulo=$valor;							
 			        	}
 			        }
+
+
 			        
 			        	
 			        if(@$name=="action")    
 			        {
 			        	$sys_input.="$(\"#sys_action_{$this->sys_name}\").val(\"__SAVE\");";
 			        }	
+					elseif(in_array(substr($name,0,7),array("section")))	    
+			        {
+			        	$action	="1";
+			        	$sys_input.="
+			        		$(\"#sys_section_{$this->sys_name}\").val(\"$name\");
+			        	";			        	
+			        }			        
 			        elseif(in_array($etiqueta,array("create","write","report","kanban","graph")))	
 			        {
 			        	$sys_input.="
@@ -3967,13 +3981,16 @@
 										var form=\"Favor de verificar los campos faltantes</font><br>\"+mensaje;								
 									}
 								}
-
-
 								
-								if(enviar==true)	$(\"form\").submit();
+								if(enviar==true)	
+								{
+									$(\"form\").submit();
+									$(\"$font_id\").button(\"option\",\"disabled\", true );	
+								}	
 								else 
 								{
 									$(\"#message\")
+									.attr({\"title\":\"MENSAJE DEL SISTEMA\"})
 									.html(form)
 									.dialog({
 										width:\"400\",
