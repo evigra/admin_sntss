@@ -310,11 +310,11 @@
 		}	
    		public function __ACCION_VALIDAR()
     	{
-    	    $this->__PRINT($this->request["users"]);
-    	    /*
+    	    
+    	    
 			if(isset($this->request["users"]))
 			{
-			    
+			    $this->__PRINT_R($this->request["users"]);    
 		
 
 				foreach($this->request["users"] as $id)
@@ -327,7 +327,7 @@
 				}
 
 			} 
-			*/   	
+			   	
 		}	
    		public function __REPORT_NOVALIDO()    // PASO 1
     	{
