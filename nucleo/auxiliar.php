@@ -1104,7 +1104,7 @@
 			else
 			*/
 			{	
-			    $message.="<br><b>DESDE PRUEBA</b>";
+			    $message.="<br><b>DESDE PRUEBA {$option["to"]}</b>";
 				$boSend =  @mail("evigra@hotmail.com", $option["title"], $message, $headers,"-fnoreply@sntss-xxv.com");
 				
 			}	
