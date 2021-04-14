@@ -48,7 +48,7 @@
 		
 		public function __SESSION()
 		{  
-			$redireccionar= "<script>window.location=\"../sesion/\";</script>";
+			$redireccionar= "<script>window.location=\"../webHome/\";</script>";
 			if(is_array($_SESSION) AND isset($_SESSION["user"]) AND is_array($_SESSION["user"]) AND isset($_SESSION["user"]["id"]) AND $_SESSION["user"]["id"]>0)
 			{
 				$redireccionar= "";					
@@ -3972,11 +3972,7 @@
 
 
 								
-								if(enviar==true)	
-								{
-									$(\"form\").submit();
-									$(\"$font_id\").button(\"option\",\"disabled\", true );	
-								}	
+								if(enviar==true)	$(\"form\").submit();
 								else 
 								{
 									$(\"#message\")
