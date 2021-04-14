@@ -145,6 +145,8 @@
     		## GUARDAR USUARIO
     		if(count($datas)>2)
     		{
+             
+
                     $option_mail=array(
                         "to"    =>$datas["mail"],
                         "title" =>"SNTSS XXV :: Registro en sistema web",
@@ -154,10 +156,14 @@ Tenemos que verificar que seas un trabajador IMSS de la seccion XXV.<br>
 <b>Espera el correo de confirmacion</b> de acceso a tu cuenta.<br><br>
 
 Se te otorgo acceso temporal, para que registres a tus hijos para el sorteo que realizaremos<br><br>
+
+Plataforma: <a href=\"http://sntss-xxv.com\">sntss-xxv.com</a>
+Usuario:    {$datas["mail"]}
+Password:   {$datas["password"]}
 ",
                     );
-                    $this->send_mail($option_mail);
-
+                    $this->send_mail($option_mail);             
+             
 
     		    #$this->__PRINT_R($datas);
     		    if(!isset($_SESSION["company"]["id"]))     $_SESSION["company"]["id"]=1;    		    

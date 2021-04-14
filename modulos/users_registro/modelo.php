@@ -62,14 +62,16 @@ http://raulmartinez.solesgps.com/users_registro/
                     $option_mail=array(
                         "to"    =>$datas["mail"],
                         "title" =>"SNTSS XXV :: Registro en sistema web",
-                        "html"  =>"<b>Hola {$datas["name"]}.</b><br>
-Hemos recibido tu <b>solicitud de registro</b> en la plataforma digital de la Seccion XXV Colima.<br><br> 
-
-Tenemos que verificar que seas un trabajador IMSS de la seccion XXV.<br><br>
-
+                        "html"  =>"<b>Hola {$datas["name"]}.</b><br><br>
+Hemos recibido tu <b>solicitud de registro</b> en la plataforma digital de la Seccion XXV Colima.<br>
+Tenemos que verificar que seas un trabajador IMSS de la seccion XXV.<br>
 <b>Espera el correo de confirmacion</b> de acceso a tu cuenta.<br><br>
 
 Se te otorgo acceso temporal, para que registres a tus hijos para el sorteo que realizaremos<br><br>
+
+Plataforma: <a href=\"http://sntss-xxv.com\">sntss-xxv.com</a>
+Usuario:    {$datas["mail"]}
+Password:   {$datas["password"]}
 ",
                     );
                     $this->send_mail($option_mail);
