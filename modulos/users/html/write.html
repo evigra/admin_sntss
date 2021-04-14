@@ -42,8 +42,20 @@
 				<div id="tabs-familiares" class="form">{lbl_id}</div>								
 			</div>
   <script>
-  $(function() {
-    $( ".tabs" ).tabs();    
-  });
+    $(function() 
+    {
+        $( ".tabs" ).tabs();    
+
+        $.ajax({
+	        type: 'GET',
+	        url: '../modulos/familia/ajax/index.php',
+	        contentType:"application/json",
+	        data:"&id={lbl_id}",
+	        success: function (res) 
+	        {
+		        $("div#tabs-familiares").html(res);
+	        },
+        });
+    });
   </script>        
 </div>
