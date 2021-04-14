@@ -146,7 +146,7 @@
     		if(count($datas)>2)
     		{
              
-
+/*
                     $option_mail=array(
                         "to"    =>$datas["mail"],
                         "title" =>"SNTSS XXV :: Registro en sistema web",
@@ -163,7 +163,7 @@ Password:   {$datas["password"]}
 ",
                     );
                     $this->send_mail($option_mail);             
-             
+  */           
 
     		    #$this->__PRINT_R($datas);
     		    if(!isset($_SESSION["company"]["id"]))     $_SESSION["company"]["id"]=1;    		    

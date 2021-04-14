@@ -70,8 +70,6 @@ Tenemos que verificar que seas un trabajador IMSS de la seccion XXV.<br>
 Se te otorgo acceso temporal, para que registres a tus hijos para el sorteo que realizaremos<br><br>
 
 Plataforma: <a href=\"http://sntss-xxv.com\">sntss-xxv.com</a><br>
-Usuario:    {$datas["email"]}<br>
-Password:   {$datas["password"]}<br>
 ",
                     );
                     $this->send_mail($option_mail);
