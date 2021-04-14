@@ -329,7 +329,7 @@
     	    $this->__ACCION_NOVALIDAR();
 			$option				=array();			
 			$option["where"]	=array();			
-			$option["where"][]				="validar =1";				
+			$option["where"][]				="validar =0";				
 			
 			return $this->__REPORTE($option);
 		}	
