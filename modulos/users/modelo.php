@@ -326,9 +326,9 @@
 
 
                     $option_mail=array(
-                        "to"    =>$datas["mail"],
-                        "title" =>"SNTSS XXV :: Confirmacion de usuario valio",
-                        "html"  =>"<b>Hola {$datas["name"]}.</b><br><br>
+                        "to"    =>$data_recibido["mail"],
+                        "title" =>"SNTSS XXV :: Confirmacion de usuario valido",
+                        "html"  =>"<b>Hola {$data_recibido["name"]}.</b><br><br>
 Este es el <b>correo de confirmacion</b> para el acceso a la plataforma digital de la Seccion XXV Colima.
 Con este correo validamos tu cuenta para que tengas los beneficios de ser sindicalizado.  
 ",
