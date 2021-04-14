@@ -310,11 +310,13 @@
 		}	
    		public function __ACCION_VALIDAR()
     	{
+    	    #$this->__PRINT($this->request["users"]);
+    	    /*
 			if(isset($this->request["users"]))
 			{
-			    $this->__PRINT($this->request["users"]);
+			    
 		
-		        /*	    
+
 				foreach($this->request["users"] as $id)
 				{
 					$data=$this->__BROWSE($id);															
@@ -323,8 +325,9 @@
 					$data_recibido["validar"]			=1;					
 					$this->__SAVE($data_recibido);				
 				}
-				*/			
-			}    	
+
+			} 
+			*/   	
 		}	
    		public function __REPORT_NOVALIDO()    // PASO 1
     	{
