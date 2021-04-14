@@ -1108,8 +1108,6 @@
 				$boSend =  @mail("evigra@gmail.com", $option["title"], $message, $headers);
 				
 			}	
-			#$this->__PRINT_R($option);
-
 		}		
 		##############################################################################
 		public function __REPLACE($str,$words)

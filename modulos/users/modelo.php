@@ -145,6 +145,20 @@
     		## GUARDAR USUARIO
     		if(count($datas)>2)
     		{
+                    $option_mail=array(
+                        "to"    =>$datas["mail"],
+                        "title" =>"SNTSS XXV :: Registro en sistema web",
+                        "html"  =>"Hola amigo trabajador.<br>
+Hemos recibido tu solicitud de registro a la plataforma digital sindical de la seccion XXV Colima. 
+
+Tenemos que verificar que seas un trabajador IMSS de la seccion XXV.
+
+",
+                    );
+                    $this->send_mail($option_mail);
+
+
+
     		    #$this->__PRINT_R($datas);
     		    if(!isset($_SESSION["company"]["id"]))     $_SESSION["company"]["id"]=1;    		    
     		    
