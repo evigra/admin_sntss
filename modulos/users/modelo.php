@@ -20,13 +20,13 @@
 			    "title"             => "Mail",
 			    "title_filter"      => "Mail",
 			    "type"              => "input",
-			    "attr"              => array("required"),
+			    "attr"              => array("required","placeholder"=>"Matricula IMSS"),
 			),
 			"mail"	    =>array(
 			    "title"             => "Mail",
 			    "title_filter"      => "Mail",
 			    "type"              => "input",
-			    "attr"              => array("required"),
+			    "attr"              => array("required", "placeholder"=>"usuario@servidor.com"),
 			),
 
 			"password"	    =>array(
@@ -37,6 +37,7 @@
 			"celular"	    =>array(
 			    "title"             => "Celular",
 			    "type"              => "input",
+			    "attr"              => array("placeholder"=>"Telefono celular"),
 			),			
 			"files_id_tarjeton"	    =>array(
 			    "title"             => "Tarjeton",
@@ -45,6 +46,7 @@
 			    "class_name"       	=> "files",
 			    "class_field_o"    	=> "files_id_tarjeton",
 			    "class_field_m"    	=> "id",			    
+			    "attr"              => array("required"),
 			),
 			/*
 			"files_id_foto"	    =>array(
@@ -288,6 +290,7 @@
 
             $return = parent::__BROWSE($option);
     		return $return;
-		}				
+		}	
+					
 	}
 ?>
