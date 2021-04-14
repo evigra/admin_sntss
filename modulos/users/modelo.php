@@ -316,11 +316,11 @@
 				foreach($this->request["users"] as $id)
 				{
 
-				    $data= parent::__BROWSE($id);
+				    $datas= parent::__BROWSE($id);
 					#$data=$this->__BROWSE($id);															
 					$this->__PRINT_R($data);
 					
-					$data_recibido					=array();
+					$data_recibido					=$datas["data"][0];
 
 					$data_recibido["validar"]			=1;					
 					$this->__SAVE($data_recibido);				
