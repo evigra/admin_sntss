@@ -324,6 +324,16 @@
 				}			
 			}    	
 		}	
+   		public function __REPORT_NOVALIDO()    // PASO 1
+    	{
+    	    $this->__ACCION_NOVALIDAR();
+			$option				=array();			
+			$option["where"]	=array();			
+			$option["where"][]				="validar =1";				
+			
+			return $this->__REPORTE($option);
+		}	
+
    		public function __ACCION_NOVALIDAR()
     	{
 			if(isset($this->request["users"]))
