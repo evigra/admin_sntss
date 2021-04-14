@@ -22,7 +22,7 @@
 
     $option["template_title"]	=$objeto->sys_var["module_path"]."html/ajax/report_title";
     $option["template_body"]	=$objeto->sys_var["module_path"]."html/ajax/report_body";			
-    $option["height"]="200px";
+    $option["height"]="300px";
 					
 	$data										= $objeto->__VIEW_REPORT($option);
 	
