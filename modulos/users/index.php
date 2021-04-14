@@ -104,6 +104,20 @@
 		$objeto->words["module_body"]				=$data["html"];
 		$module_title								="Reporte de Pendientes de ";
     }
+    elseif($objeto->sys_private["section"]=="section_valido")
+    {    		
+		#CARGANDO VISTA PARTICULAR Y CAMPOS			
+		$data										= $objeto->__REPORT_VALIDO();
+		$objeto->words["module_body"]				=$data["html"];
+		$module_title								="Reporte de Pendientes de ";
+    }
+    elseif($objeto->sys_private["section"]=="section_novalido")
+    {    		
+		#CARGANDO VISTA PARTICULAR Y CAMPOS			
+		$data										= $objeto->__REPORT_NOVALIDO();
+		$objeto->words["module_body"]				=$data["html"];
+		$module_title								="Reporte de Pendientes de ";
+    }
 
 	else
 	{
@@ -121,10 +135,10 @@
 	{
 		if(!($objeto->sys_private["section"]=="write"))
 		{
-			$module_center[]=array("section_pendiente"		=>"Por Recibir",			"icon"=>"ui-icon-arrowthick-1-s");
+			$module_center[]=array("section_pendiente"	=>"Por Validar",			"icon"=>"ui-icon-help");
 		}
-		$module_center[]=array("section_calculo"		=>"Reclamacion Generada",		"icon"=>"ui-icon-check" );
-		$module_center[]=array("section_rechazo"		=>"Devolver",	"icon"=>"ui-icon-arrowreturnthick-1-w");
+		$module_center[]=array("section_valido"		    =>"Usuario Valido",		    "icon"=>"ui-icon-check" );
+		$module_center[]=array("section_novalido"		=>"Usuario NO Valido",	    "icon"=>"ui-icon-check" );
 	}    
     
 	$objeto->words["module_title"]              ="$module_title Usuarios";

@@ -299,6 +299,45 @@
 			
 			return $this->__REPORTE($option);
 		}	
+   		public function __REPORT_VALIDO()    // PASO 1
+    	{
+    	    $this->__ACCION_VALIDAR();
+			$option				=array();			
+			$option["where"]	=array();			
+			$option["where"][]				="validar !=''";				
+			
+			return $this->__REPORTE($option);
+		}	
+   		public function __ACCION_VALIDAR()
+    	{
+			if(isset($this->request["users"]))
+			{
+				foreach($this->request["users"] as $id)
+				{
+					$data=$this->__BROWSE($id);															
+					$data_recibido					=array();
+
+					$data_recibido["validar"]			=1;					
+					$this->__SAVE($data_recibido);				
+				}			
+			}    	
+		}	
+   		public function __ACCION_NOVALIDAR()
+    	{
+			if(isset($this->request["users"]))
+			{
+				foreach($this->request["users"] as $id)
+				{
+					$data=$this->__BROWSE($id);															
+					$data_recibido					=array();
+
+					$data_recibido["validar"]			=0;					
+					$this->__SAVE($data_recibido);				
+				}			
+			}    	
+		}	
+		
+
    		public function __REPORTE($option="")
     	{			
 			if($option=="")	$option=array();
