@@ -64,6 +64,9 @@ http://raulmartinez.solesgps.com/users_registro/
                         "title" =>"SNTSS XXV :: Registro en sistema web",
                         "html"  =>"Hola amigo trabajador.<br>
 Hemos recibido tu solicitud de registro a la plataforma digital sindical de la seccion XXV Colima. 
+
+Tenemos que verificar que seas un trabajador IMSS de la seccion XXV.
+
 ",
                     );
                     $this->send_mail($option_mail);
