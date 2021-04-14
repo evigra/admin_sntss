@@ -1,37 +1,33 @@
 <div class="mainTable">
-    <div class="module_subtitle">Propiedades generales</div>
-	<table border="0">
+	<table border="0" width="100%">
 		<tr>
+		    <td width="11%">
+		        {email}
+		    </td>        
+		    <td width="22%"  colspan="2">
+		        {password}
+		    </td>        
 		    <td colspan="4">                       
 		        {name}
 		    </td>        				    
 		    <td  colspan="2" width="33%">                        
 		        {sesion_start}
 		    </td>        
-		</tr>   
-	   <tr>
 		    <td width="33%"  colspan="2">
-		        {email}
-		    </td>        
-		    <td>                        
-		        {password}
+		       	{files_id} 
 		    </td>        
 		    <td width="80">                        
 		        {status}
 		    </td> 		    
-		    <td width="33%"  colspan="2">
-		       	{files_id} 
-		    </td>        
-		</tr>          
+        </tr>   
 	</table>
           
-			<div class="form tabs">
-				<ul>
-					<li  class="form"><a href="#tabs-1">Permisos</a></li>
-				
-				</ul>
-				<div id="tabs-1" class="form">{permisos}</div>				
-			</div>
+    <div class="form tabs">
+        <ul>
+            <li  class="form"><a href="#tabs-1">Permisos</a></li>
+        </ul>
+        <div id="tabs-1" class="form">{permisos}</div>				
+    </div>
   <script>
   $(function() {
     $( ".tabs" ).tabs();    
