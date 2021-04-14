@@ -323,7 +323,7 @@
 
 					$data_recibido["validar"]			=1;					
 
-
+					$this->__SAVE($data_recibido);				
 
                     $option_mail=array(
                         "to"    =>$data_recibido["mail"],
@@ -335,9 +335,7 @@ Con este correo validamos tu cuenta para que tengas los beneficios de ser sindic
                     );
                     $this->send_mail($option_mail);             
 
-
-
-					$this->__SAVE($data_recibido);				
+					
 				}
 			} 			   	
 		}	
@@ -348,7 +346,7 @@ Con este correo validamos tu cuenta para que tengas los beneficios de ser sindic
 			$option				=array();			
 			$option["where"]	=array();			
 			$option["where"][]				="validar=0";				
-			
+
 			return $this->__REPORTE($option);
 		}	
 
@@ -363,6 +361,19 @@ Con este correo validamos tu cuenta para que tengas los beneficios de ser sindic
 
 					$data_recibido["validar"]			=0;					
 					$this->__SAVE($data_recibido);				
+
+
+                    $option_mail=array(
+                        "to"    =>$data_recibido["mail"],
+                        "title" =>"SNTSS XXV :: Usuario bloqueado",
+                        "html"  =>"<b>Hola {$data_recibido["name"]}.</b><br><br>
+Este es un <b>correo de bloqueo</b> para el acceso a la plataforma digital de la Seccion XXV Colima.<br>
+Te hacemos saber, que no fue posible validar tus datos.<br><br>
+<b>Ingresa a la plataforma, para registrarte nuevamente</b>.
+",
+                    );
+                    $this->send_mail($option_mail);             
+
 				}
 			} 			   	
 		}	
