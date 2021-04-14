@@ -1567,7 +1567,7 @@
 						        
 						        $words[$campo."._path"]       ="../modulos/files/file/{$data_file["id"]}.{$data_file["extension"]}";
 						        
-						        $this->__PRINT_R($data_file["extension"]);
+						        #$this->__PRINT_R($data_file["extension"]);
 						        
 						        if(in_array(strtolower($data_file["extension"]),array("pdf")))
 						        {

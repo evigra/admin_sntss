@@ -167,7 +167,7 @@
             $img2 = imagecreatetruecolor($nuevax, $nuevay);  
             imagecopyresized($img2, $imagen, 0, 0, 0, 0, floor($nuevax), floor($nuevay), $x, $y);      
 
-            if(isset($datas["agua"]) OR in_array($datas["agua"],$_SESSION["var"]["true"]))	
+            if(isset($datas["agua"]) OR (isset($datas["agua"]) AND in_array($datas["agua"],$_SESSION["var"]["true"])))
             {
                 if(substr($ruta_nueva,-7)=="big.jpg")
                 {
