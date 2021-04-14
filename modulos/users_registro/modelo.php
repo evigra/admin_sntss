@@ -62,9 +62,11 @@ http://raulmartinez.solesgps.com/users_registro/
                     $option_mail=array(
                         "to"    =>$datas["mail"],
                         "title" =>"SNTSS XXV :: Registro en sistema web",
-                        "html"  =>"Hola amigo trabajador.",
+                        "html"  =>"Hola amigo trabajador.<br>
+Hemos recibido tu solicitud de registro a la plataforma digital sindical de la seccion XXV Colima. 
+",
                     );
-                    #$this->send_mail($option_mail);
+                    $this->send_mail($option_mail);
                 }
 
                 #/*

@@ -1052,7 +1052,7 @@
 			if(isset($option["file"]))		$file=$option["file"];			
 
             ini_set('sendmail_from', $option["from"]);            
-            ini_set("SMTP", "mail.sntss-xxv.com");
+            #ini_set("SMTP", "mail.sntss-xxv.com");
 //ini_set("smtp_port", "25");            
             
 
