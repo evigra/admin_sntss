@@ -1565,14 +1565,13 @@
 						    {
 						        $data_file                  =$this->sys_fields[$campo]["values"][0];						
 						        
-						        $path_pdf="../modulos/files/file/{$data_file["id"]}.";
+						        $words[$campo."._path"]       ="../modulos/files/file/{$data_file["id"]}.{$data_file["extension"]}";
 						        
-						        $words[$campo."._path"]       ="{$path_pdf}.{$data_file["extension"]}";
-						        
-						        #$this->__PRINT_R($data_file["extension"]);
+						        $this->__PRINT_R($data_file["extension"]);
 						        
 						        if(in_array(strtolower($data_file["extension"]),array("pdf")))
-						        {						            
+						        {
+						            
 						            $path_pdf="../sitio_web/img/pdf2.png";
 						            $words[$campo."._thumb"]      ="<img src=\"$path_pdf\">";
 						            $words[$campo."._small"]      ="<img src=\"$path_pdf\">";
@@ -1583,12 +1582,11 @@
 						        }
 						        else
 						        {
-						            
-						            $words[$campo."._thumb"]      ="<img src=\"{$path_pdf}_thumb.jpg\">";
-						            $words[$campo."._small"]      ="<img src=\"{$path_pdf}_small.jpg\">";
-						            $words[$campo."._medium"]     ="<img src=\"{$path_pdf}_medium.jpg\">";
-						            $words[$campo."._big"]        ="<img src=\"{$path_pdf}_big.jpg\">";
-						            $words[$campo.".original"]    ="<img src=\"{$path_pdf}\">";
+						            $words[$campo."._thumb"]      ="<img src=\"{$row[$field."._path"]}_thumb.jpg\">";
+						            $words[$campo."._small"]      ="<img src=\"{$row[$field."._path"]}_small.jpg\">";
+						            $words[$campo."._medium"]     ="<img src=\"{$row[$field."._path"]}_medium.jpg\">";
+						            $words[$campo."._big"]        ="<img src=\"{$row[$field."._path"]}_big.jpg\">";
+						            $words[$campo.".original"]    ="<img src=\"{$row[$field."._path"]}\">";
 						        }    
 						    }
 
@@ -1886,7 +1884,7 @@
 									$words["$campo"]  ="{$label}{$valor["br"]}$titulo";
 								else								
 									$words["$campo"]  ="
-										<input id=\"auto_$campo\"  name=\"{$this->sys_name}_auto_$campo\" $style type=\"text\"   txt=\"{$valor["title"]	}\"  $attr value=\"$label\" class=\"formulario {$this->sys_name} $class\">{$valor["br"]}$titulo
+										<input id=\"auto_$campo\"  name=\"{$this->sys_name}_auto_$campo\" $style type=\"text\"   $attr value=\"$label\" class=\"formulario {$this->sys_name} $class\">{$valor["br"]}$titulo
 										<input id=\"$campo\" 	   name=\"{$this->sys_name}_$campo\" value=\"{$valor["value"]}\"  class=\"formulario {$this->sys_name}\" type=\"hidden\">
 										<div id=\"auto_$campo\" title=\"Crear Registro\">{create_auto_$campo}</div>
 									" . $this->__JS_SET($js);
@@ -2314,7 +2312,7 @@
 						        {
 						            
 						            $path_pdf="../sitio_web/img/pdf2.png";
-						            $words[$field."._thumb"]      ="<img src=\"$path_pdf\">";
+						            $words[$campo."._thumb"]      ="<img src=\"$path_pdf\">";
 
 						            $row[$field."._path"]       ="../modulos/files/file/{$data_file["id"]}.{$data_file["extension"]}";
 						            $row[$field."._thumb"]      ="<img src=\"{$path_pdf}\">";
@@ -2339,7 +2337,7 @@
 						    else
 						    {
 					            $path_pdf="../sitio_web/img/delete.png";
-					            $words[$field."._thumb"]      ="<img src=\"$path_pdf\">";
+					            $words[$campo."._thumb"]      ="<img src=\"$path_pdf\">";
 
 					            $row[$field."._path"]       ="#";
 					            $row[$field."._thumb"]      ="<img src=\"{$path_pdf}\" width=\"25\">";
@@ -3978,7 +3976,7 @@
 									$(\"#message\")
 									.html(form)
 									.dialog({
-										width:\"350\",
+										width:\"400\",
 										modal: true,
 									});
 								}							
