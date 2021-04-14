@@ -310,7 +310,7 @@
 		}	
    		public function __ACCION_VALIDAR()
     	{
-    	    #$this->__PRINT($this->request["users"]);
+    	    $this->__PRINT($this->request["users"]);
     	    /*
 			if(isset($this->request["users"]))
 			{
