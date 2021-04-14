@@ -61,6 +61,7 @@
 		##############################################################################
 		public function __CONSTRUCT($option=null)
 		{			
+		    $this->words["mensaje_sesion"]	=	"";
 			$return = parent::__CONSTRUCT($option);			
 
 			if(isset($_GET["cookie"]) AND isset($_COOKIE['SolesGPS']) AND !isset($_SESSION["var"]["action"]))
@@ -152,7 +153,7 @@
 								<img src=\"../modulos/sesion/img/noCheck.png\" alt=\"\" />
 							</td>
 							<td style = \"padding-left: 10px;\">
-								Error de Sesion. Verifique Sus Datos.
+								Error de Sesion. <br>Verifique Sus Datos.
 							</td>    														 
 						</tr>    													
 					</table>    												
@@ -161,8 +162,10 @@
     		
     		if(array_key_exists("user",$datas) AND array_key_exists("pass",$datas))
     		{
+    		    	
 				$user       			=$this->sys_fields["user"]["obj"]->session($datas["user"],$datas["pass"]);
 					
+				
 				if(count($user)>0)
 				{	
 					if($user["email"]==$datas["user"])
