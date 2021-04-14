@@ -3838,13 +3838,16 @@
 			    	$action		=0;
 			    	$titulo		="";
 					$sys_input	="";
+					$text	="";
+
+
 					
 					if(isset($data["icon"]))		$icon	=$data["icon"];
 					if(isset($data["text"]))		$text	=$data["text"];
 					if(isset($data["title"]))		$title	=$data["title"];
 										
 			        foreach($data as $etiqueta =>$valor)
-			        {					  
+			        {					       
 			        	if(in_array($etiqueta,array("icon","text","title")))					       
 			        	{
 			        		unset($data["$etiqueta"]);
@@ -3866,19 +3869,19 @@
 			        		
 		        			if(in_array($etiqueta,array("create","write","report","kanban","graph")))	
 		        			{	##### ICONO #################
-		        				$text	="false";
+		        				if($text=="")				$text	="false";
 		        				$action	="1";
 		        				$name	="$etiqueta";
 		        			}
 		        			elseif(in_array(substr($etiqueta,0,5),array("creat","write","repor","kanba","actio","graph")))	
 		        			{	##### TEXTO #################
-		        				$text	="true";
+			        			if($text=="")				$text	="true";
 		        				$action	="1";
 		        				$name	="$etiqueta";
 		        			}
 		        			else
 		        			{
-		        				$text	="true";
+		        				if($text=="")				$text	="true";
 		        				$name	="$etiqueta";
 		        			}			        			
 
@@ -3896,12 +3899,21 @@
 							if($titulo=="")	$titulo=$valor;							
 			        	}
 			        }
+
+
 			        
 			        	
 			        if(@$name=="action")    
 			        {
 			        	$sys_input.="$(\"#sys_action_{$this->sys_name}\").val(\"__SAVE\");";
 			        }	
+					elseif(in_array(substr($name,0,7),array("section")))	    
+			        {
+			        	$action	="1";
+			        	$sys_input.="
+			        		$(\"#sys_section_{$this->sys_name}\").val(\"$name\");
+			        	";			        	
+			        }			        
 			        elseif(in_array($etiqueta,array("create","write","report","kanban","graph")))	
 			        {
 			        	$sys_input.="
@@ -3969,8 +3981,6 @@
 										var form=\"Favor de verificar los campos faltantes</font><br>\"+mensaje;								
 									}
 								}
-
-
 								
 								if(enviar==true)	
 								{
@@ -3980,9 +3990,10 @@
 								else 
 								{
 									$(\"#message\")
+									.attr({\"title\":\"MENSAJE DEL SISTEMA\"})
 									.html(form)
 									.dialog({
-										width:\"350\",
+										width:\"400\",
 										modal: true,
 									});
 								}							
