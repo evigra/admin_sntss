@@ -318,6 +318,8 @@
 
 				    $data= parent::__BROWSE($id);
 					#$data=$this->__BROWSE($id);															
+					$this->__PRINT_R($data);
+					
 					$data_recibido					=array();
 
 					$data_recibido["validar"]			=1;					
