@@ -18,13 +18,13 @@
         
     $module_title	="";
 
-	# PRECARGANDO LOS BOTONES PARA LA VISTA SELECCIONADA
-	$module_right=array(
-		array("create"=>"Crear"),
-		#array("write"=>"Modificar"),
-		array("kanban"=>"Kanban"),
-		array("report"=>"Reporte"),
-    );
+		# PRECARGANDO LOS BOTONES PARA LA VISTA SELECCIONADA
+    	$module_right=array(
+			array("create"=>"Crear"),
+			#array("write"=>"Modificar"),
+			array("kanban"=>"Kanban"),
+			array("report"=>"Reporte"),
+	    );
 	
     if($objeto->sys_private["section"]=="create")
 	{
@@ -97,14 +97,6 @@
 		$data										=$objeto->__VIEW_KANBAN($option);		
 		$objeto->words["module_body"]				=$data["html"];
     }        
-    elseif($objeto->sys_private["section"]=="section_pendiente")
-    {    		
-		#CARGANDO VISTA PARTICULAR Y CAMPOS			
-		$data										= $objeto->__REPORT_PENDIENTE();
-		$objeto->words["module_body"]				=$data["html"];
-		$module_title								="Reporte de Pendientes de ";
-    }
-
 	else
 	{
 		# TITULO DEL MODULO
