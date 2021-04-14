@@ -312,6 +312,8 @@
     	{
 			if(isset($this->request["users"]))
 			{
+			    $this->__PRINT($this->request["users"]);
+			    
 				foreach($this->request["users"] as $id)
 				{
 					$data=$this->__BROWSE($id);															
