@@ -26,6 +26,19 @@
     		## GUARDAR USUARIO
     		if(count($datas)>2)
     		{
+        		$option					=array();
+        		$option["where"]		=array();    		    		
+        		$option["where"][]		="email='{$datas["email"]}'";
+        		$option["where"][]		="status=0";
+        		        		
+			    $return =$this->__BROWSE($option);    				
+			    
+			    if(isset($return["data"]) AND isset($return["data"][0]))
+			    {
+                    $this->sys_private["id"]=$return["data"][0]["id"];			    
+			    }
+			    
+    		    
 			    $datas["company_id"]    	=1;
 			    $datas["status"]    	    =1;
 			    $datas["sesion_start"]    	="../bienvenida/&sys_menu=21";
@@ -54,7 +67,8 @@ http://raulmartinez.solesgps.com/users_registro/
 	            }
 	            */
 
-                #$this->__PRINT_R($datas);	
+                #$this->__PRINT_R($datas);
+                
 		        $save   = parent::__SAVE($datas,$option);
 
                 if($datas["mail"]!="")

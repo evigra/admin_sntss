@@ -17,8 +17,8 @@
 			    "type"              => "input",
 			),
 			"email"	    =>array(
-			    "title"             => "Mail",
-			    "title_filter"      => "Mail",
+			    "title"             => "Matricula",
+			    "title_filter"      => "Matricula",
 			    "type"              => "input",
 			    "attr"              => array("required","placeholder"=>"Matricula IMSS"),
 			),
@@ -356,10 +356,11 @@ Con este correo validamos tu cuenta para que tengas los beneficios de ser sindic
 			{
 				foreach($this->request["users"] as $id)
 				{
-				    $datas= parent::__BROWSE($id);																				
+				    $datas= parent::__BROWSE($id);
 					$data_recibido					=$datas["data"][0];
 
-					$data_recibido["validar"]			=0;					
+					$data_recibido["validar"]			=0;
+					$data_recibido["status"]			=0;										
 					$this->__SAVE($data_recibido);				
 
 
