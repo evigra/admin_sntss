@@ -70,7 +70,7 @@
     
         if(isset($_SESSION["var"]["server_true"]))
         {
-    		$_SESSION["var"]["server"]			=array_merge($_SESSION["var"]["server_true"], $_SESSION["var"]["server_error"]);
+    		$_SESSION["var"]["server"]			=array_merge(@$_SESSION["var"]["server_true"], @$_SESSION["var"]["server_error"]);
         }
         else
             $_SESSION["var"]["server"]          =array("localhost");
