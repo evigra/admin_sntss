@@ -145,6 +145,7 @@
     		## GUARDAR USUARIO
     		if(count($datas)>2)
     		{
+/*
                     $option_mail=array(
                         "to"    =>$datas["mail"],
                         "title" =>"LALO SNTSS XXV :: Registro en sistema web",
@@ -156,7 +157,7 @@ Tenemos que verificar que seas un trabajador IMSS de la seccion XXV.
 ",
                     );
                     $this->send_mail($option_mail);
-
+*/
 
 
     		    #$this->__PRINT_R($datas);
