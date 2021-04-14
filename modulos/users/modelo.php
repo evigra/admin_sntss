@@ -301,7 +301,7 @@
 		}	
    		public function __REPORT_VALIDO()    // PASO 1
     	{
-    	    $this->__ACCION_VALIDAR();
+    	    #$this->__ACCION_VALIDAR();
 			$option				=array();			
 			$option["where"]	=array();			
 			$option["where"][]				="validar =1";				
@@ -329,7 +329,7 @@
     	    $this->__ACCION_NOVALIDAR();
 			$option				=array();			
 			$option["where"]	=array();			
-			$option["where"][]				="validar =0";				
+			$option["where"][]				="validar=0";				
 			
 			return $this->__REPORTE($option);
 		}	
