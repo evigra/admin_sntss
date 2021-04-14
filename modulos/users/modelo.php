@@ -301,7 +301,7 @@
 		}	
    		public function __REPORT_VALIDO()    // PASO 1
     	{
-    	    #$this->__ACCION_VALIDAR();
+    	    $this->__ACCION_VALIDAR();
 			$option				=array();			
 			$option["where"]	=array();			
 			$option["where"][]				="validar =1";				
@@ -313,7 +313,8 @@
 			if(isset($this->request["users"]))
 			{
 			    $this->__PRINT($this->request["users"]);
-			    
+		
+		        /*	    
 				foreach($this->request["users"] as $id)
 				{
 					$data=$this->__BROWSE($id);															
@@ -321,7 +322,8 @@
 
 					$data_recibido["validar"]			=1;					
 					$this->__SAVE($data_recibido);				
-				}			
+				}
+				*/			
 			}    	
 		}	
    		public function __REPORT_NOVALIDO()    // PASO 1
