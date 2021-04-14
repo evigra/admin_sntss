@@ -9,6 +9,8 @@
 	
 	if(!isset($_SESSION))		$_SESSION=array();
 	
+	print_r($_SESSION);
+	
 	if(isset($_SESSION))
 	{
 		if(!isset($_SESSION["var"]))			        $_SESSION["var"]					=array();
