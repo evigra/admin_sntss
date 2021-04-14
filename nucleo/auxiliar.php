@@ -1424,6 +1424,9 @@
 							else						$titulo		="<font id=\"$campo\" style=\"color:gray;\">{$valor["title"]} </font>";
 					    }	
 
+						$words["lbl_$campo"]  		="{$valor["value"]}";
+						$words["font_$campo"]  		="<b>{$valor["value"]}</b><br>$titulo";
+
 
 						################################					    
 					    if($valor["type"]=="input" OR $valor["type"]=="primary key")	
