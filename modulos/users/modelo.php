@@ -313,18 +313,16 @@
     	{    	      	    
 			if(isset($this->request["users"]))
 			{
-			    #$this->__PRINT_R($this->request["users"]);    
-		
-
 				foreach($this->request["users"] as $id)
 				{
-				/*
-					$data=$this->__BROWSE($id);															
+
+				    $data= parent::__BROWSE($id);
+					#$data=$this->__BROWSE($id);															
 					$data_recibido					=array();
 
 					$data_recibido["validar"]			=1;					
 					$this->__SAVE($data_recibido);				
-					*/
+
 				}
 			} 
 			   	
