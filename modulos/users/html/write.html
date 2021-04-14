@@ -39,7 +39,9 @@
 				
 				</ul>
 				<div id="tabs-permiso" class="form">{permisos}</div>
-				<div id="tabs-familiares" class="form" style="height:350px;">{lbl_id}</div>								
+				<div id="tabs-familiares" class="form" style="height:350px;">
+                    <div id="report-familiares" class="form" style="height:330px;"></div>				
+				</div>												
 			</div>
   <script>
     $(function() 
@@ -53,7 +55,7 @@
 	        data:"&id={lbl_id}",
 	        success: function (res) 
 	        {
-		        $("div#tabs-familiares").html(res);
+		        $("div#report-familiares").html(res);
 	        },
         });
     });
