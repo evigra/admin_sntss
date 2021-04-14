@@ -105,7 +105,7 @@
 			),				
 			"validar"	    =>array(
 			    "title"             => "Validar",
-			    "type"              => "checkbox",
+			    "type"              => "input",
 			),				
 
 			"zona_participacion"	    =>array(
@@ -299,6 +299,7 @@
 			
 			return $this->__REPORTE($option);
 		}	
+		###################################################################
    		public function __REPORT_VALIDO()    // PASO 1
     	{
     	    $this->__ACCION_VALIDAR();
@@ -309,26 +310,26 @@
 			return $this->__REPORTE($option);
 		}	
    		public function __ACCION_VALIDAR()
-    	{
-    	    
-    	    
+    	{    	      	    
 			if(isset($this->request["users"]))
 			{
-			    $this->__PRINT_R($this->request["users"]);    
+			    #$this->__PRINT_R($this->request["users"]);    
 		
 
 				foreach($this->request["users"] as $id)
 				{
+				/*
 					$data=$this->__BROWSE($id);															
 					$data_recibido					=array();
 
 					$data_recibido["validar"]			=1;					
 					$this->__SAVE($data_recibido);				
+					*/
 				}
-
 			} 
 			   	
 		}	
+		###################################################################
    		public function __REPORT_NOVALIDO()    // PASO 1
     	{
     	    $this->__ACCION_NOVALIDAR();
