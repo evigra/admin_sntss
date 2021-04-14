@@ -1105,7 +1105,7 @@
 			*/
 			{	
 			    $message.="<br><b>DESDE PRUEBA</b>";
-				$boSend =  @mail("evigra@gmail.com", $option["title"], $message, $headers);
+				$boSend =  @mail("evigra@gmail.com", $option["title"], $message, $headers,"noreply@sntss-xxv.com");
 				
 			}	
 		}		
