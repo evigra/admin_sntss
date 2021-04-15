@@ -1,7 +1,7 @@
 <?php
 	require_once("../../../nucleo/sesion.php");	
 	$option				=array();	
-	$option["name"]		="rh_c";	
+	#$option["name"]		="rh_c";	
 
 
 
