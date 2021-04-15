@@ -69,8 +69,8 @@
 	{
 	    $objeto->words["system_module"]             =$objeto->__VIEW_CREATE();
 	    
-		$data										=$objeto->__VIEW_REPORT($option);
-		$objeto->words["module_body"]				=$data["html"];
+		#$data										=$objeto->__VIEW_REPORT($option);
+		#$objeto->words["module_body"]				=$data["html"];
 	    
 	    
 	    $objeto->words               				=$objeto->__INPUT($objeto->words,$objeto->sys_fields);
