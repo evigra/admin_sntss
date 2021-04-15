@@ -10,7 +10,6 @@
 	
 	# CARGA DE ARCHIVOS EXTERNOS JS, CSS
 	$objeto->words["html_head_js"]	=	$objeto->__FILE_JS();
-	#$objeto->words["html_head_css"]	=	$objeto->__FILE_CSS(array("../sitio_web/css/basicItems"));
 		
 	$module_center	="";	
 	$module_left	="";
@@ -46,9 +45,8 @@
 		$module_left=array(
 			array("action"=>"Guardar"),
 			array("cancel"=>"Cancelar"),
-		);
-	
-	    }	
+		);	
+	}	
 	elseif($objeto->sys_private["section"]=="kanban")
 	{
 		# TITULO DEL MODULO
@@ -70,6 +68,11 @@
 	else
 	{
 	    $objeto->words["system_module"]             =$objeto->__VIEW_CREATE();
+	    
+		$data										=$objeto->__VIEW_REPORT($option);
+		$objeto->words["module_body"]				=$data["html"];
+	    
+	    
 	    $objeto->words               				=$objeto->__INPUT($objeto->words,$objeto->sys_fields);
 
 		$module_left=array(

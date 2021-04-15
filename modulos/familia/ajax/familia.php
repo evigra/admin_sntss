@@ -1,7 +1,6 @@
 <?php
 	require_once("../../../nucleo/sesion.php");	
 	$option				=array();	
-	$option["name"]		="rh_c";	
 
 	$objeto				=new familia($option);	
 	#$objeto->sys_private["section"]=="section_filtro";
